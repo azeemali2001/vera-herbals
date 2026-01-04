@@ -1,19 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const sendEmail = require('./utils/sendEmail');
+const sendEmail = require('../services/sendEmail');
 
-// Load environment variables
-dotenv.config();
-
-const app = express();
-
-// Middleware
-app.use(cors()); // Enable CORS for all origins (adjust for production)
-app.use(express.json()); // Parse JSON bodies
-
-// POST /api/contact
-app.post('/api/contact', async (req, res) => {
+const submitContact = async (req, res) => {
   try {
     const { fullName, companyName, email, phone, requirement, message } = req.body;
 
@@ -52,21 +39,8 @@ app.post('/api/contact', async (req, res) => {
       message: 'Something went wrong',
     });
   }
-});
+};
 
-// Health check route
-app.get('/', (req, res) => {
-  res.json({ message: 'Vera Herbals Backend API is running' });
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ success: false, message: 'Something went wrong!' });
-});
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = {
+  submitContact,
+};
