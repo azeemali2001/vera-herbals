@@ -5,23 +5,23 @@ export function AboutSection() {
   const values = [
     {
       icon: Sprout,
-      title: "Quality-First Approach",
-      description: "Every batch meets the highest standards of purity and potency",
+      title: "Ayurvedic Heritage",
+      description: "Rooted in 5,000 years of traditional healing wisdom",
     },
     {
       icon: Globe2,
-      title: "Sustainable Sourcing",
-      description: "Ethically sourced from certified organic farms",
+      title: "Sustainable Harvesting",
+      description: "Ethical sourcing that preserves biodiversity and communities",
     },
     {
       icon: Award,
-      title: "Professional Processing",
-      description: "State-of-the-art facilities with strict hygiene protocols",
+      title: "Pure & Natural",
+      description: "No chemicals, additives, or artificial processing",
     },
     {
       icon: Users,
-      title: "Long-Term Partnerships",
-      description: "Building trust through consistency and reliability",
+      title: "Holistic Wellness",
+      description: "Supporting complete health through natural herbal solutions",
     },
   ];
 
@@ -57,9 +57,9 @@ export function AboutSection() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-8 shadow-2xl backdrop-blur-sm border border-[#6B9D3E]/20"
             >
-              <div className="text-5xl text-[#4A7C2C] mb-2">5+</div>
-              <div className="text-[#2D5016]">Years of Excellence</div>
-              <div className="text-sm text-[#4A7C2C]/70 mt-1">in B2B Supply</div>
+              <div className="text-5xl text-[#4A7C2C] mb-2">5000+</div>
+              <div className="text-[#2D5016]">Years of Tradition</div>
+              <div className="text-sm text-[#4A7C2C]/70 mt-1">Ayurvedic Wisdom</div>
             </motion.div>
           </motion.div>
 
@@ -83,22 +83,22 @@ export function AboutSection() {
               </motion.div>
               
               <h2 className="text-4xl sm:text-5xl text-[#2D5016]">
-                Your Trusted Partner in{" "}
+                Bridging Ancient Wisdom with{" "}
                 <span className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] bg-clip-text text-transparent">
-                  Premium Moringa Supply
+                  Modern Wellness
                 </span>
               </h2>
               
               <p className="text-lg text-[#4A7C2C]/80 leading-relaxed">
-                VERA represents a commitment to excellence in the natural wellness industry. 
-                We partner with businesses worldwide, providing consistent, high-quality moringa 
-                powder that meets the most demanding standards.
+                VERA is dedicated to bringing the healing power of nature's finest herbs to modern wellness.
+                We honor the 5,000-year-old tradition of Ayurveda while maintaining the highest standards
+                of quality, purity, and sustainability in our processing methods.
               </p>
               
               <p className="text-lg text-[#4A7C2C]/80 leading-relaxed">
-                Our journey began with a simple vision: to make premium, ethically-sourced moringa 
-                accessible to businesses that share our values of quality, sustainability, and integrity. 
-                Today, we're proud to be a preferred supplier for leading wellness brands across the globe.
+                Our mission is to provide authentic, organic herbal products that support holistic health
+                and wellness. From traditional Ayurvedic herbs to innovative wellness solutions, we ensure
+                that every product maintains the natural potency and healing properties that nature intended.
               </p>
             </div>
 

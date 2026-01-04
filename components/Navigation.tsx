@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Leaf, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,33 +19,16 @@ export function Navigation() {
   }, []);
 
   const menuItems = [
-    { label: "Home", href: "#home" },
-    { label: "About VERA", href: "#about" },
-    { label: "Features", href: "#features" },
-    { label: "Industries & Use Cases", href: "#industries" },
-    { label: "Quality & Compliance", href: "#quality" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "Products", href: "/products" },
+    { label: "About Us", href: "/about-us" },
+    { label: "Blog", href: "/blog" },
+    { label: "Recipes", href: "/recipes" },
+    { label: "Contact Us", href: "/contact-us" },
   ];
 
-  const scrollToSection = (href: string) => {
+  const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    
-    if (href === "#home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80; // Account for fixed navbar height
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
   };
 
   return (
@@ -73,30 +58,39 @@ export function Navigation() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               className="flex items-center gap-3 cursor-pointer group"
-              onClick={() => scrollToSection("#home")}
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all">
-                <Leaf className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-2xl text-[#2D5016] tracking-tight">
-                VERA
-              </div>
+              <Link to="/" className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all">
+                  <Leaf className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl text-[#2D5016] tracking-tight">
+                  VERA
+                </div>
+              </Link>
             </motion.div>
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center gap-8">
               {menuItems.map((item, index) => (
-                <motion.button
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-[#2D5016] hover:text-[#4A7C2C] transition-colors relative group py-2"
+                  className="relative group py-2"
                 >
-                  <span className="text-sm">{item.label}</span>
+                  <Link
+                    to={item.href}
+                    className={`text-sm transition-colors ${
+                      location.pathname === item.href
+                        ? "text-[#4A7C2C] font-medium"
+                        : "text-[#2D5016] hover:text-[#4A7C2C]"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] group-hover:w-full transition-all duration-300" />
-                </motion.button>
+                </motion.div>
               ))}
             </div>
 
@@ -107,19 +101,18 @@ export function Navigation() {
               transition={{ duration: 0.5 }}
               className="hidden lg:block"
             >
-              <Button
-                onClick={() => scrollToSection("#contact")}
-                className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] hover:from-[#3D6623] hover:to-[#5A8C2F] text-white px-6 py-5 rounded-full shadow-lg hover:shadow-xl transition-all group"
-              >
-                <span>Contact for Bulk Orders</span>
-                <motion.span
-                  className="ml-2 inline-block"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  →
-                </motion.span>
-              </Button>
+              <Link to="/contact-us">
+                <Button className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] hover:from-[#3D6623] hover:to-[#5A8C2F] text-white px-6 py-5 rounded-full shadow-lg hover:shadow-xl transition-all group">
+                  <span>Contact for Bulk Orders</span>
+                  <motion.span
+                    className="ml-2 inline-block"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.span>
+                </Button>
+              </Link>
             </motion.div>
 
             {/* Mobile Menu Button */}
@@ -155,7 +148,7 @@ export function Navigation() {
           <div className="container mx-auto px-4 sm:px-6 py-6">
             <div className="space-y-1">
               {menuItems.map((item, index) => (
-                <motion.button
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{
@@ -163,20 +156,29 @@ export function Navigation() {
                     x: isMobileMenuOpen ? 0 : -20,
                   }}
                   transition={{ delay: index * 0.05, duration: 0.3 }}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-3 text-[#2D5016] hover:text-[#4A7C2C] hover:bg-[#F5F1E8] rounded-xl transition-all group"
+                  className="group"
                 >
-                  <div className="flex items-center justify-between">
-                    <span>{item.label}</span>
-                    <motion.span
-                      className="opacity-0 group-hover:opacity-100 transition-opacity"
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      →
-                    </motion.span>
-                  </div>
-                </motion.button>
+                  <Link
+                    to={item.href}
+                    onClick={closeMobileMenu}
+                    className={`block px-4 py-3 rounded-xl transition-all ${
+                      location.pathname === item.href
+                        ? "text-[#4A7C2C] bg-[#F5F1E8] font-medium"
+                        : "text-[#2D5016] hover:text-[#4A7C2C] hover:bg-[#F5F1E8]"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span>{item.label}</span>
+                      <motion.span
+                        className="opacity-0 group-hover:opacity-100 transition-opacity"
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        →
+                      </motion.span>
+                    </div>
+                  </Link>
+                </motion.div>
               ))}
             </div>
 
@@ -190,12 +192,11 @@ export function Navigation() {
               transition={{ delay: 0.3, duration: 0.3 }}
               className="mt-6 pt-6 border-t border-[#6B9D3E]/10"
             >
-              <Button
-                onClick={() => scrollToSection("#contact")}
-                className="w-full bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] hover:from-[#3D6623] hover:to-[#5A8C2F] text-white px-6 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
-              >
-                Contact for Bulk Orders
-              </Button>
+              <Link to="/contact-us" onClick={closeMobileMenu}>
+                <Button className="w-full bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] hover:from-[#3D6623] hover:to-[#5A8C2F] text-white px-6 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
+                  Contact for Bulk Orders
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>

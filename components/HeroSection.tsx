@@ -49,18 +49,19 @@ export function HeroSection() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#6B9D3E]/20"
             >
               <Leaf className="w-4 h-4 text-[#4A7C2C]" />
-              <span className="text-sm text-[#2D5016]">Premium B2B Supply</span>
+              <span className="text-sm text-[#2D5016]">Ayurvedic Herbal Wellness</span>
             </motion.div>
 
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl text-[#2D5016] leading-tight">
-                Premium Moringa Powder for{" "}
+                Nature's Finest{" "}
                 <span className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] bg-clip-text text-transparent">
-                  Bulk & B2B Supply
+                  Moringa & Herbal Products
                 </span>
               </h1>
               <p className="text-xl text-[#4A7C2C]/80 max-w-xl">
-                Pure. Powerful. Scalable. Trusted by businesses worldwide.
+                Discover the power of traditional Ayurvedic herbs for modern wellness.
+                Boost immunity, enhance vitality, and embrace natural healing.
               </p>
             </div>
 
@@ -72,17 +73,17 @@ export function HeroSection() {
             >
               <Button
                 className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] hover:from-[#3D6623] hover:to-[#5A8C2F] text-white px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all group"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.location.href = '/products'}
               >
-                Contact for Bulk Orders
+                Explore Products
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 variant="outline"
                 className="border-2 border-[#4A7C2C] text-[#4A7C2C] hover:bg-[#4A7C2C] hover:text-white px-8 py-6 rounded-full transition-all"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.location.href = '/about-us'}
               >
-                Become a Business Partner
+                Learn More
               </Button>
             </motion.div>
 
@@ -94,16 +95,16 @@ export function HeroSection() {
               className="flex flex-wrap gap-8 pt-8 border-t border-[#6B9D3E]/20"
             >
               <div>
-                <div className="text-3xl text-[#2D5016]">100+</div>
-                <div className="text-sm text-[#4A7C2C]/70">B2B Partners</div>
+                <div className="text-3xl text-[#2D5016]">9</div>
+                <div className="text-sm text-[#4A7C2C]/70">Premium Products</div>
               </div>
               <div>
-                <div className="text-3xl text-[#2D5016]">15+</div>
-                <div className="text-sm text-[#4A7C2C]/70">Countries Served</div>
+                <div className="text-3xl text-[#2D5016]">100%</div>
+                <div className="text-sm text-[#4A7C2C]/70">Organic & Natural</div>
               </div>
               <div>
-                <div className="text-3xl text-[#2D5016]">99.9%</div>
-                <div className="text-sm text-[#4A7C2C]/70">Purity Level</div>
+                <div className="text-3xl text-[#2D5016]">Ayurvedic</div>
+                <div className="text-sm text-[#4A7C2C]/70">Traditional Roots</div>
               </div>
             </motion.div>
           </motion.div>

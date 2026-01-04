@@ -4,10 +4,10 @@ import { Button } from "./ui/button";
 
 export function CTASection() {
   const benefits = [
-    "Competitive bulk pricing",
-    "Flexible MOQ options",
-    "Custom packaging solutions",
-    "Fast turnaround times",
+    "Premium organic herbal products",
+    "Traditional Ayurvedic formulations",
+    "Sustainable and ethical sourcing",
+    "Expert wellness consultation",
   ];
 
   return (
@@ -53,15 +53,15 @@ export function CTASection() {
                   </div>
                   
                   <h2 className="text-4xl sm:text-5xl text-white">
-                    Looking for a Trusted{" "}
+                    Ready to Experience{" "}
                     <span className="bg-gradient-to-r from-[#B4D88C] to-[#8CBE60] bg-clip-text text-transparent">
-                      Moringa Powder Supplier?
+                      Nature's Healing Power?
                     </span>
                   </h2>
                   
                   <p className="text-lg text-white/80 leading-relaxed">
-                    Join hundreds of businesses worldwide who trust VERA for their moringa supply. 
-                    Let's discuss how we can support your growth.
+                    Discover how our premium herbal products can enhance your wellness journey.
+                    Get in touch to learn more about our authentic, organic offerings.
                   </p>
 
                   <div className="space-y-3">
@@ -84,7 +84,7 @@ export function CTASection() {
 
                   <Button
                     className="bg-white text-[#2D5016] hover:bg-[#F5F1E8] px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all group mt-4"
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => window.location.href = '/contact-us'}
                   >
                     Get in Touch with VERA
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -109,13 +109,13 @@ export function CTASection() {
                 
                 {/* Floating stats */}
                 <div className="absolute top-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
-                  <div className="text-4xl text-[#4A7C2C] mb-1">24h</div>
-                  <div className="text-sm text-[#2D5016]">Response Time</div>
+                  <div className="text-4xl text-[#4A7C2C] mb-1">9</div>
+                  <div className="text-sm text-[#2D5016]">Premium Herbs</div>
                 </div>
                 
                 <div className="absolute bottom-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
-                  <div className="text-4xl text-[#4A7C2C] mb-1">ISO</div>
-                  <div className="text-sm text-[#2D5016]">Certified Facility</div>
+                  <div className="text-4xl text-[#4A7C2C] mb-1">100%</div>
+                  <div className="text-sm text-[#2D5016]">Organic & Natural</div>
                 </div>
               </motion.div>
             </div>

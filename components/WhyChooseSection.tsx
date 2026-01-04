@@ -1,43 +1,27 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, TrendingUp, Boxes, Tag, Clock, Headphones } from "lucide-react";
+import { Leaf, Shield, Recycle, Heart } from "lucide-react";
 
 export function WhyChooseSection() {
   const benefits = [
     {
-      icon: CheckCircle2,
-      title: "Consistent Quality",
-      description: "Rigorous quality control ensures every batch meets the same high standards",
-      stats: "99.9% consistency rate",
+      icon: Leaf,
+      title: "Natural & Organic",
+      description: "All our herbs are sourced from certified organic farms, ensuring pure, natural ingredients free from synthetic pesticides and fertilizers.",
     },
     {
-      icon: TrendingUp,
-      title: "Competitive Bulk Pricing",
-      description: "Volume-based pricing that grows with your business",
-      stats: "Up to 30% savings on bulk",
+      icon: Shield,
+      title: "No Chemicals",
+      description: "We maintain the integrity of nature's healing power by avoiding all chemical additives, preservatives, and artificial processing.",
     },
     {
-      icon: Boxes,
-      title: "Flexible MOQ Options",
-      description: "Minimum order quantities designed for businesses of all sizes",
-      stats: "MOQ from 100kg",
+      icon: Recycle,
+      title: "Sustainably Sourced",
+      description: "Our commitment to sustainability ensures responsible harvesting practices that protect biodiversity and support local farming communities.",
     },
     {
-      icon: Tag,
-      title: "Custom Branding",
-      description: "Complete private label and white label packaging solutions",
-      stats: "Your brand, our quality",
-    },
-    {
-      icon: Clock,
-      title: "Reliable Logistics",
-      description: "On-time delivery with complete shipment tracking and support",
-      stats: "98% on-time delivery",
-    },
-    {
-      icon: Headphones,
-      title: "Dedicated B2B Support",
-      description: "Expert team to handle your queries, orders, and special requirements",
-      stats: "24/7 support available",
+      icon: Heart,
+      title: "Traditional Ayurvedic Roots",
+      description: "Drawing from 5,000 years of Ayurvedic wisdom, we combine ancient knowledge with modern quality standards for optimal wellness.",
     },
   ];
 
@@ -72,21 +56,21 @@ export function WhyChooseSection() {
           className="text-center max-w-3xl mx-auto mb-16 space-y-4"
         >
           <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm text-white border border-white/20">
-            B2B Value Proposition
+            Why Choose Us
           </div>
           <h2 className="text-4xl sm:text-5xl text-white">
-            Why Leading Brands{" "}
+            Nature's Purest{" "}
             <span className="bg-gradient-to-r from-[#8CBE60] to-[#B4D88C] bg-clip-text text-transparent">
-              Choose VERA
+              Healing Herbs
             </span>
           </h2>
           <p className="text-lg text-white/80">
-            We're not just a supplier – we're your growth partner in the wellness industry
+            Experience the difference of authentic, sustainably sourced herbal products rooted in Ayurvedic tradition
           </p>
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
@@ -108,12 +92,6 @@ export function WhyChooseSection() {
                   <p className="text-white/70 leading-relaxed text-sm">
                     {benefit.description}
                   </p>
-                  <div className="pt-3 border-t border-white/10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
-                      <div className="w-1.5 h-1.5 bg-[#8CBE60] rounded-full animate-pulse" />
-                      <span className="text-xs text-white/90">{benefit.stats}</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -130,11 +108,10 @@ export function WhyChooseSection() {
         >
           <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
             <p className="text-xl text-white/90 leading-relaxed">
-              "VERA has been our trusted partner for over 3 years. Their consistency in quality 
-              and professionalism in service makes them stand out in the industry."
+              "Through our commitment to purity and tradition, we bring you the authentic healing power of nature's finest herbs."
             </p>
             <div className="mt-4 text-[#8CBE60]">
-              — Leading Nutraceutical Brand, USA
+              — Rooted in Ayurvedic Wisdom
             </div>
           </div>
         </motion.div>

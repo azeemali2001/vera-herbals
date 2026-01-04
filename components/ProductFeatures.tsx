@@ -1,55 +1,58 @@
 import { motion } from "framer-motion";
-import { Leaf, FlaskConical, ShieldCheck, Package, Sparkles, Truck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function ProductFeatures() {
-  const features = [
+  const products = [
     {
-      icon: Leaf,
-      title: "100% Pure & Natural",
-      description: "No additives, fillers, or artificial ingredients. Just pure moringa powder.",
-      gradient: "from-[#4A7C2C] to-[#6B9D3E]",
+      name: "Moringa Leaf Powder",
+      benefit: "Rich in vitamins, minerals, and antioxidants",
+      image: "🌿"
     },
     {
-      icon: FlaskConical,
-      title: "Lab Tested Quality",
-      description: "Every batch undergoes rigorous testing for purity, safety, and potency.",
-      gradient: "from-[#5B8C3D] to-[#7CAD4F]",
+      name: "Curry Leaf Powder",
+      benefit: "Supports digestion and hair health",
+      image: "🍃"
     },
     {
-      icon: ShieldCheck,
-      title: "Hygienic Processing",
-      description: "Processed in certified facilities following international standards.",
-      gradient: "from-[#4A7C2C] to-[#5B8C3D]",
+      name: "Neem Leaf Powder",
+      benefit: "Natural detoxifier and skin health support",
+      image: "🌿"
     },
     {
-      icon: Package,
-      title: "Bulk Supply Capability",
-      description: "From small batches to large-scale orders, we scale with your needs.",
-      gradient: "from-[#6B9D3E] to-[#8CBE60]",
+      name: "Tulsi Leaf Powder",
+      benefit: "Stress relief and immune boosting",
+      image: "🌱"
     },
     {
-      icon: Sparkles,
-      title: "Private & White Label",
-      description: "Custom packaging and branding solutions for your business identity.",
-      gradient: "from-[#5B8C3D] to-[#6B9D3E]",
+      name: "Amla Powder",
+      benefit: "Vitamin C powerhouse for immunity",
+      image: "🫐"
     },
     {
-      icon: Truck,
-      title: "Export-Ready Packaging",
-      description: "Compliant packaging designed for safe international shipping.",
-      gradient: "from-[#4A7C2C] to-[#7CAD4F]",
+      name: "Papaya Leaf Powder",
+      benefit: "Digestive enzymes and liver support",
+      image: "🍃"
     },
+    {
+      name: "Turmeric Powder",
+      benefit: "Anti-inflammatory and joint health",
+      image: "🌶️"
+    },
+    {
+      name: "Banana Powder",
+      benefit: "Natural energy and electrolyte balance",
+      image: "🍌"
+    },
+    {
+      name: "Hibiscus Powder",
+      benefit: "Heart health and natural energy boost",
+      image: "🌺"
+    }
   ];
 
   return (
-    <section id="features" className="py-24 bg-gradient-to-b from-white via-[#F5F1E8] to-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#6B9D3E]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#4A7C2C]/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -58,23 +61,20 @@ export function ProductFeatures() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16 space-y-4"
         >
-          <div className="inline-block px-4 py-2 bg-white rounded-full text-sm text-[#4A7C2C] border border-[#6B9D3E]/20">
-            Product Excellence
-          </div>
           <h2 className="text-4xl sm:text-5xl text-[#2D5016]">
-            Premium Features That Set{" "}
+            Our{" "}
             <span className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] bg-clip-text text-transparent">
-              Us Apart
+              Herbal Products
             </span>
           </h2>
           <p className="text-lg text-[#4A7C2C]/80">
-            Every aspect of our moringa powder is designed for businesses that demand excellence
+            Discover nature's finest herbs, carefully sourced and processed for maximum wellness benefits
           </p>
         </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -83,27 +83,22 @@ export function ProductFeatures() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="group relative"
             >
-              <div className="relative bg-white rounded-3xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#6B9D3E]/10 overflow-hidden">
-                {/* Gradient background on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                
-                <div className="relative z-10 space-y-4">
-                  {/* Icon */}
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                    <feature.icon className="w-8 h-8 text-white" />
-                  </div>
+              <div className="relative bg-white rounded-3xl p-6 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#6B9D3E]/10 overflow-hidden">
+                {/* Product Image */}
+                <div className="w-full h-48 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl mb-4 flex items-center justify-center text-6xl">
+                  {product.image}
+                </div>
 
-                  {/* Content */}
-                  <div className="space-y-2">
-                    <h3 className="text-xl text-[#2D5016]">{feature.title}</h3>
-                    <p className="text-[#4A7C2C]/70 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
+                {/* Content */}
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold text-[#2D5016]">{product.name}</h3>
+                  <p className="text-[#4A7C2C]/70 leading-relaxed">
+                    {product.benefit}
+                  </p>
                 </div>
 
                 {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#6B9D3E]/5 to-transparent rounded-bl-full" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#6B9D3E]/5 to-transparent rounded-bl-full" />
               </div>
             </motion.div>
           ))}
@@ -117,10 +112,12 @@ export function ProductFeatures() {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="text-center mt-16"
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full border border-[#6B9D3E]/20 shadow-lg">
-            <div className="w-2 h-2 bg-[#4A7C2C] rounded-full animate-pulse" />
-            <span className="text-sm text-[#2D5016]">All features backed by certifications and quality guarantees</span>
-          </div>
+          <Link
+            to="/products"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] text-white font-medium rounded-full hover:shadow-lg transition-all"
+          >
+            View All Products
+          </Link>
         </motion.div>
       </div>
     </section>
