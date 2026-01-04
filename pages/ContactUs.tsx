@@ -22,33 +22,31 @@ export default function ContactUs() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.fullName || !formData.email) {
       toast.error("Please fill in all required fields");
       return;
     }
 
-    // Simulate form submission
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-    toast.success("Enquiry submitted successfully! We'll contact you within 24 hours.");
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        fullName: "",
-        companyName: "",
-        email: "",
-        phone: "",
-        requirement: "",
-        message: "",
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      if (!res.ok) throw new Error("Failed");
+
+      setIsSubmitted(true);
+      toast.success("Enquiry submitted successfully! We'll contact you within 24 hours.");
+
+    } catch (err) {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
+
 
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
