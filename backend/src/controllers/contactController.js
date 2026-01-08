@@ -5,10 +5,11 @@ const submitContact = async (req, res) => {
     const { fullName, companyName, email, phone, requirement, message } = req.body;
 
     // Validation: Check required fields
-    if (!fullName || !email) {
+    // Validate all required fields
+    if (!fullName || !companyName || !email || !phone || !requirement || !message) {
       return res.status(400).json({
         success: false,
-        message: 'Full name and email are required',
+        message: 'All fields (Full Name, Company Name, Email, Phone, Requirement, Message) are required.',
       });
     }
 

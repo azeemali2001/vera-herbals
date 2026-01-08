@@ -5,12 +5,12 @@ const sendEmail = async (contactData) => {
     // Create transporter
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
-      port: process.env.EMAIL_PORT,
-      secure: true, // true for 465, false for other ports
+      port: Number(process.env.EMAIL_PORT),
+      secure: true, // Office365/GoDaddy uses STARTTLS on port 587
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
-      },
+      }
     });
 
     // Email content
@@ -33,9 +33,14 @@ const sendEmail = async (contactData) => {
     };
 
     // Send email
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent:', info.messageId);
-    return true;
+    try {
+      const info = await transporter.sendMail(mailOptions);
+      console.log('Email sent:', info.messageId);
+      return true;
+    } catch (smtpError) {
+      console.error('SMTP send error:', smtpError);
+      throw new Error('Failed to send email');
+    }
   } catch (error) {
     console.error('Email send error:', error);
     throw new Error('Failed to send email');
