@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Leaf, Menu, X } from "lucide-react";
+import Logo from "@/src/assets/Final Logo-  (5000 x 5000 px)- tranparent bg.png";
 import { Button } from "./ui/button";
 import { Link, useLocation } from "react-router-dom";
 
@@ -38,7 +39,9 @@ export function Navigation() {
           isScrolled ? "py-3" : "py-5"
         }`}
         style={{
-          backgroundColor: isScrolled ? "rgba(255, 255, 255, 0.95)" : "transparent",
+          backgroundColor: isScrolled
+            ? "rgba(255, 255, 255, 0.95)"
+            : "transparent",
         }}
       >
         {/* Glassmorphism backdrop blur */}
@@ -57,14 +60,15 @@ export function Navigation() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-3 cursor-pointer group"
+              className="flex items-center cursor-pointer group"
             >
-              <Link to="/" className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all">
-                  <Leaf className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-2xl text-[#2D5016] tracking-tight">
-                  VERA
+              <Link to="/" className="flex items-center">
+                <div className="h-16 w-auto rounded-xl bg-white px-3 flex items-center justify-center group-hover:shadow-xl group-hover:scale-105 transition-all overflow-hidden">
+                  <img
+                    src={Logo}
+                    alt="VERA logo"
+                    className="h-full w-auto object-contain"
+                  />
                 </div>
               </Link>
             </motion.div>

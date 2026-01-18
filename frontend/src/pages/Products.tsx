@@ -5,8 +5,8 @@ import { Toaster } from "../components/ui/sonner";
 const products = [
   {
     name: "Moringa Leaf Powder",
-    description: "Rich in vitamins, minerals, and antioxidants. Supports immune health and energy levels.",
-    benefits: ["High in Vitamin C", "Antioxidant properties", "Supports digestion"],
+    description: "Nutritionally Rich with vitamins, minerals and amino acids. Rich Source of Vitamin A, B1, B2, B3, B6, K, E and C",
+    benefits: [" 9 times more protein than yoghurt. Protects and nourishes Hair and Skin. 15 times more potassium than bananas. Reduces fatigue and Weakness. 25 times more iron than spinach. Anti-inflammatory and antioxidant.", "7 times more vitamin C than oranges. Boosts immunity and energy levels; Natural Moringa Powder has an Earthy Taste. Take 1 teaspoon (4gms) daily on an empty stomach in the morning for better results. You can take it with water or mix it in juices, smoothies, vegetables, curries, dal, etc.", "Natural Multi-vitamin | Immunity Booster | Weight Loss | Good for Hair & Skin | Natural Source of Protein","A complete daily superfood packed with plant-based protein, essential vitamins, minerals, and antioxidants. Supports overall wellness, boosts energy, and promotes healthy hair, skin, and immunity naturally."],
     usage: "Mix 1 tsp with water, smoothies, or food daily."
   },
   {
@@ -66,10 +66,9 @@ export default function Products() {
       <div className="pt-20">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Herbal Products</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Organic Products</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover our range of premium, organic herbal powders sourced from nature's finest.
-              Each product is carefully processed to maintain maximum nutritional value.
+              Discover natural organic powders, carefully sourced and proceessed for your total wellbeing
             </p>
           </div>
 

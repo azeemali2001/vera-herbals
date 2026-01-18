@@ -64,12 +64,11 @@ export function ProductFeatures() {
           <h2 className="text-4xl sm:text-5xl text-[#2D5016]">
             Our{" "}
             <span className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] bg-clip-text text-transparent">
-              Herbal Products
+              Organic Products
             </span>
           </h2>
           <p className="text-lg text-[#4A7C2C]/80">
-            Discover nature's finest herbs, carefully sourced and processed for maximum wellness benefits
-          </p>
+            Discover natural organic powders, carefully sourced and proceessed for your total wellbeing</p>
         </motion.div>
 
         {/* Products Grid */}
