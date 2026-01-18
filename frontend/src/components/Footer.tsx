@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Leaf } from "lucide-react";
+import Logo from "@/src/assets/Final Logo-  (5000 x 5000 px)- tranparent bg.png";
 
 export function Footer() {
   return (
@@ -21,10 +22,13 @@ export function Footer() {
             className="space-y-4"
           >
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6B9D3E] to-[#8CBE60] flex items-center justify-center">
-                <Leaf className="w-7 h-7 text-white" />
+              <div className="h-18 px-3 rounded-xl backdrop-blur-sm flex items-center justify-center shadow-md">
+                <img
+                  src={Logo}
+                  alt="VERA logo"
+                  className="h-full w-auto object-fill"
+                />
               </div>
-              <div className="text-3xl text-white">VERA</div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed">
               Pure Moringa. Trusted Supply.
@@ -44,7 +48,9 @@ export function Footer() {
             </p>
             <div className="flex items-center justify-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#8CBE60] animate-pulse" />
-              <span className="text-sm text-white/70">Serving businesses worldwide</span>
+              <span className="text-sm text-white/70">
+                Serving businesses worldwide
+              </span>
             </div>
           </motion.div>
 
@@ -82,9 +88,10 @@ export function Footer() {
             <div>•</div>
             <div>Export Ready</div>
           </div>
-          
+
           <p className="text-sm text-white/50">
-            © {new Date().getFullYear()} VERA. All rights reserved. Crafted for B2B Excellence.
+            © {new Date().getFullYear()} VERA. All rights reserved. Crafted for
+            B2B Excellence.
           </p>
         </motion.div>
       </div>
