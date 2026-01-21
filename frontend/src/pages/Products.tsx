@@ -1,110 +1,230 @@
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
-import { Toaster } from "../components/ui/sonner";
+import { ProductHero } from "../components/products/ProductHero";
+import { FeaturedProduct } from "../components/products/FeaturedProduct";
+import { ProductGrid } from "../components/products/ProductGrid";
 
 const products = [
   {
     name: "Moringa Leaf Powder",
-    description: "Rich in vitamins, minerals, and antioxidants. Supports immune health and energy levels.",
-    benefits: ["High in Vitamin C", "Antioxidant properties", "Supports digestion"],
-    usage: "Mix 1 tsp with water, smoothies, or food daily."
+    image: "moringaLeafPowder.png",
+    about: [
+      {
+        heading: "MULTI-VITAMIN POWERHOUSE",
+        bullets: [
+          "Nutritionally rich with essential vitamins, minerals, and amino acids.",
+          "A rich source of Vitamins A, B1, B2, B3, B6, K, E, and C."
+        ]
+      },
+      {
+        heading: "SUPERFOOD FOR PROTEIN",
+        bullets: [
+          "9× more protein than yoghurt",
+          "15× more potassium than bananas",
+          "25× more iron than spinach",
+          "Helps reduce fatigue and weakness while nourishing hair and skin with anti-inflammatory and antioxidant properties."
+        ]
+      },
+      {
+        heading: "IMMUNITY BOOSTER",
+        bullets: [
+          "7× more Vitamin C than oranges",
+          "Boosts immunity and energy levels.",
+          "Natural moringa powder has a mild earthy taste."
+        ]
+      }
+    ],
+    usage: "Take 1 teaspoon (4g) daily on an empty stomach. Can be consumed with water or mixed into juices, smoothies, vegetables, curries, dal, etc.",
+    highlights: "Natural Multi-Vitamin • Immunity Booster • Weight Management Support • Good for Hair & Skin • Plant-Based Protein Source",
+    description:
+      "A complete daily superfood packed with plant-based protein, essential vitamins, minerals, and antioxidants. Supports overall wellness, boosts energy, and promotes healthy hair, skin, and immunity—naturally."
   },
   {
     name: "Curry Leaf Powder",
-    description: "Traditional herb known for its culinary and medicinal properties.",
-    benefits: ["Supports hair health", "Aids digestion", "Rich in antioxidants"],
-    usage: "Add to curries, teas, or sprinkle on meals."
+    image: "curryLeafPowder.png",
+    about: [
+      {
+        heading: "For Cooking",
+        bullets: [
+          "Curry leaf powder adds a rich, aromatic, and earthy flavor to dishes.",
+          "Use sparingly and adjust to taste for authentic Indian cuisine."
+        ]
+      },
+      {
+        heading: "For Hair Oil Preparation",
+        bullets: [
+          "Heat coconut oil and add curry leaf powder according to hair length and thickness.",
+          "Fry briefly until the oil begins to boil. Let it cool, then strain using a clean cloth.",
+          "The infused oil is ready for use."
+        ]
+      },
+      {
+        heading: "For Hair Mask",
+        bullets: [
+          "Mix one spoon of curry leaf powder with water to form a smooth paste.",
+          "Apply to hair, leave for 30 minutes, and rinse with normal water."
+        ]
+      },
+      {
+        heading: "Nutritional Benefit",
+        bullets: [
+          "Curry leaves are a rich source of Vitamin B, essential for strengthening hair roots and promoting healthy hair growth."
+        ]
+      }
+    ],
+    usage: "Take 1 teaspoon (4g) daily on an empty stomach. Can be consumed with water or mixed into juices, smoothies, vegetables, curries, dal, etc.",
+    highlights: "Rich Aroma • Hair Health • Vitamin B Source • Authentic Indian Flavor",
+    description:
+      "Premium curry leaf powder for culinary and wellness use. Adds authentic flavor to dishes and supports healthy hair growth."
   },
   {
     name: "Neem Leaf Powder",
-    description: "Ancient remedy for skin health and immune support.",
-    benefits: ["Natural detoxifier", "Skin health support", "Antimicrobial properties"],
-    usage: "Mix with water for tea or apply as paste."
+    image: "neemLeafPowder.png",
+    about: [
+      {
+        heading: "SKIN & IMMUNE SUPPORT",
+        bullets: [
+          "Ancient remedy for skin health and immune support.",
+          "Natural detoxifier with antimicrobial properties."
+        ]
+      }
+    ],
+    usage: "Mix with water for tea or apply as paste.",
+    highlights: "Detoxifier • Skin Health • Immunity",
+    description: "Neem leaf powder supports clear skin and a healthy immune system with natural detoxifying properties."
   },
   {
     name: "Tulsi Leaf Powder",
-    description: "Holy basil known as the 'Queen of Herbs' for stress relief and immunity.",
-    benefits: ["Stress reduction", "Immune booster", "Respiratory health"],
-    usage: "Brew as tea or add to smoothies."
+    image: "tulsiLeafPowder.png",
+    about: [
+      {
+        heading: "STRESS RELIEF & IMMUNITY",
+        bullets: [
+          "Holy basil known as the 'Queen of Herbs'.",
+          "Promotes stress reduction and respiratory health."
+        ]
+      }
+    ],
+    usage: "Brew as tea or add to smoothies.",
+    highlights: "Stress Relief • Immune Booster • Respiratory Health",
+    description: "Tulsi powder helps manage stress, supports immunity, and promotes respiratory wellness."
   },
   {
     name: "Amla Powder",
-    description: "Indian gooseberry, one of the richest sources of Vitamin C.",
-    benefits: ["Immune support", "Hair and skin health", "Digestive health"],
-    usage: "Mix with honey, water, or add to meals."
+    image: "amlaPowder.png",
+    about: [
+      {
+        heading: "VITAMIN C POWERHOUSE",
+        bullets: [
+          "Indian gooseberry, one of the richest sources of Vitamin C.",
+          "Supports hair, skin, and digestive health."
+        ]
+      }
+    ],
+    usage: "Mix with honey, water, or add to meals.",
+    highlights: "Vitamin C • Hair & Skin • Digestion",
+    description: "Amla powder is a potent source of Vitamin C, supporting immunity, hair, and skin health."
   },
   {
     name: "Papaya Leaf Powder",
-    description: "Supports digestive health and natural detoxification.",
-    benefits: ["Digestive enzymes", "Liver support", "Platelet health"],
-    usage: "Brew as tea or mix with water."
+    image: "papayaLeafPowder.png",
+    about: [
+      {
+        heading: "DIGESTIVE & LIVER SUPPORT",
+        bullets: [
+          "Supports digestive health and natural detoxification.",
+          "Contains digestive enzymes and supports liver function."
+        ]
+      }
+    ],
+    usage: "Brew as tea or mix with water.",
+    highlights: "Digestive Enzymes • Liver Support • Detox",
+    description: "Papaya leaf powder aids digestion and supports liver health with natural enzymes."
   },
   {
     name: "Turmeric Powder",
-    description: "Golden spice with powerful anti-inflammatory properties.",
-    benefits: ["Anti-inflammatory", "Joint health", "Antioxidant"],
-    usage: "Add to golden milk, curries, or smoothies."
+    image: "turmericPowder.png",
+    about: [
+      {
+        heading: "ANTI-INFLAMMATORY & JOINT HEALTH",
+        bullets: [
+          "Golden spice with powerful anti-inflammatory properties.",
+          "Supports joint health and antioxidant protection."
+        ]
+      }
+    ],
+    usage: "Add to golden milk, curries, or smoothies.",
+    highlights: "Anti-inflammatory • Joint Health • Antioxidant",
+    description: "Turmeric powder is known for its anti-inflammatory and antioxidant benefits, supporting joint health."
   },
   {
     name: "Banana Powder",
-    description: "Natural energy source rich in potassium and vitamins.",
-    benefits: ["Energy boost", "Electrolyte balance", "Digestive health"],
-    usage: "Add to smoothies, baking, or oatmeal."
+    image: "bananaPowder.png",
+    about: [
+      {
+        heading: "ENERGY & ELECTROLYTE BALANCE",
+        bullets: [
+          "Natural energy source rich in potassium and vitamins.",
+          "Supports electrolyte balance and digestive health."
+        ]
+      }
+    ],
+    usage: "Add to smoothies, baking, or oatmeal.",
+    highlights: "Energy Boost • Potassium • Digestion",
+    description: "Banana powder provides natural energy, supports digestion, and helps maintain electrolyte balance."
   },
   {
     name: "Hibiscus Powder",
-    description: "Beautiful flower known for heart health and natural energy.",
-    benefits: ["Blood pressure support", "Antioxidant rich", "Natural diuretic"],
-    usage: "Brew as tea or add to beverages."
+    image: "hibiscusPowder.png",
+    about: [
+      {
+        heading: "HEART & NATURAL ENERGY",
+        bullets: [
+          "Beautiful flower known for heart health and natural energy.",
+          "Rich in antioxidants and supports healthy blood pressure."
+        ]
+      }
+    ],
+    usage: "Brew as tea or add to beverages.",
+    highlights: "Heart Health • Antioxidant • Energy",
+    description: "Hibiscus powder supports heart health, provides antioxidants, and boosts natural energy."
   }
 ];
 
+// Featured products (first 2)
+const featuredProducts = products.slice(0, 2);
+
+// Other products (rest)
+const otherProducts = products.slice(2);
+
 export default function Products() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <Navigation />
-      <div className="pt-20">
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Herbal Products</h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover our range of premium, organic herbal powders sourced from nature's finest.
-              Each product is carefully processed to maintain maximum nutritional value.
-            </p>
-          </div>
+      
+      <div className="pt-16">
+        {/* Hero Section */}
+        <ProductHero />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <div className="w-full h-48 bg-gradient-to-br from-green-100 to-green-200 rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-6xl">🌿</span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-4">{product.description}</p>
+        {/* Featured Products - Alternating Layout */}
+        {featuredProducts.map((product, index) => (
+          <FeaturedProduct
+            key={product.name}
+            product={product}
+            index={index}
+            reversed={index % 2 === 1}
+          />
+        ))}
 
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-900 mb-2">Key Benefits:</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    {product.benefits.map((benefit, i) => (
-                      <li key={i} className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-900 mb-2">Suggested Usage:</h4>
-                  <p className="text-sm text-gray-600">{product.usage}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Other Products Grid */}
+        <ProductGrid
+          products={otherProducts}
+          title="More Herbal Treasures"
+          subtitle="Explore our complete range of nature's finest remedies, each carefully selected for quality and potency."
+        />
       </div>
+
       <Footer />
-      <Toaster position="top-right" />
     </main>
   );
 }

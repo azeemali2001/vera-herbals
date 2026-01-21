@@ -6,47 +6,47 @@ export function ProductFeatures() {
     {
       name: "Moringa Leaf Powder",
       benefit: "Rich in vitamins, minerals, and antioxidants",
-      image: "🌿"
+      image: "moringaLeafPowder.png"
     },
     {
       name: "Curry Leaf Powder",
       benefit: "Supports digestion and hair health",
-      image: "🍃"
+      image: "curryLeafPowder.png"
     },
     {
       name: "Neem Leaf Powder",
       benefit: "Natural detoxifier and skin health support",
-      image: "🌿"
+      image: "neemLeafPowder.png"
     },
     {
       name: "Tulsi Leaf Powder",
       benefit: "Stress relief and immune boosting",
-      image: "🌱"
+      image: "tulsiLeafPowder.png"
     },
     {
       name: "Amla Powder",
       benefit: "Vitamin C powerhouse for immunity",
-      image: "🫐"
+      image: "amlaPowder.png"
     },
     {
       name: "Papaya Leaf Powder",
       benefit: "Digestive enzymes and liver support",
-      image: "🍃"
+      image: "papayaLeafPowder.png"
     },
     {
       name: "Turmeric Powder",
       benefit: "Anti-inflammatory and joint health",
-      image: "🌶️"
+      image: "turmericPowder.png"
     },
     {
       name: "Banana Powder",
       benefit: "Natural energy and electrolyte balance",
-      image: "🍌"
+      image: "bananaPowder.png"
     },
     {
       name: "Hibiscus Powder",
       benefit: "Heart health and natural energy boost",
-      image: "🌺"
+      image: "hibiscusPowder.png"
     }
   ];
 
@@ -64,11 +64,11 @@ export function ProductFeatures() {
           <h2 className="text-4xl sm:text-5xl text-[#2D5016]">
             Our{" "}
             <span className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] bg-clip-text text-transparent">
-              Herbal Products
+              Organic Products
             </span>
           </h2>
           <p className="text-lg text-[#4A7C2C]/80">
-            Discover nature's finest herbs, carefully sourced and processed for maximum wellness benefits
+            Discover natural organic powders, carefully sourced and proceessed for your total wellbeing
           </p>
         </motion.div>
 
@@ -85,9 +85,15 @@ export function ProductFeatures() {
             >
               <div className="relative bg-white rounded-3xl p-6 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#6B9D3E]/10 overflow-hidden">
                 {/* Product Image */}
-                <div className="w-full h-48 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl mb-4 flex items-center justify-center text-6xl">
-                  {product.image}
+                <div className="w-full h-48 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl mb-4 overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
+
 
                 {/* Content */}
                 <div className="space-y-2">

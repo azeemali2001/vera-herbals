@@ -34,20 +34,18 @@ export function Navigation() {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "py-3" : "py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "py-3" : "py-5"
+          }`}
         style={{
           backgroundColor: isScrolled ? "rgba(255, 255, 255, 0.95)" : "transparent",
         }}
       >
         {/* Glassmorphism backdrop blur */}
         <div
-          className={`absolute inset-0 backdrop-blur-md transition-all duration-300 ${
-            isScrolled
+          className={`absolute inset-0 backdrop-blur-md transition-all duration-300 ${isScrolled
               ? "bg-white/95 shadow-lg border-b border-[#6B9D3E]/10"
               : "bg-transparent"
-          }`}
+            }`}
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -57,17 +55,36 @@ export function Navigation() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-3 cursor-pointer group"
+              className="flex items-center gap-4 cursor-pointer group"
             >
               <Link to="/" className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all">
-                  <Leaf className="w-6 h-6 text-white" />
+                {/* Logo container */}
+                <div
+                  className="
+        w-12 h-12
+        bg-[#E6F2D9]
+        rounded-xl
+        shadow-md
+        flex items-center justify-center
+        overflow-hidden
+        transition-all
+        group-hover:shadow-lg
+        group-hover:scale-105
+      "
+                >
+                  <img
+                    src="logo-no-bg.png"
+                    alt="Vera Herbal Wellness Logo"
+                    className="w-full h-full object-contain scale-110"
+                  />
                 </div>
-                <div className="text-2xl text-[#2D5016] tracking-tight">
+
+                <div className="text-2xl text-[#2D5016] tracking-tight font-serif font-semibold">
                   VERA
                 </div>
               </Link>
             </motion.div>
+
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center gap-8">
@@ -81,11 +98,10 @@ export function Navigation() {
                 >
                   <Link
                     to={item.href}
-                    className={`text-sm transition-colors ${
-                      location.pathname === item.href
+                    className={`text-sm transition-colors ${location.pathname === item.href
                         ? "text-[#4A7C2C] font-medium"
                         : "text-[#2D5016] hover:text-[#4A7C2C]"
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </Link>
@@ -161,11 +177,10 @@ export function Navigation() {
                   <Link
                     to={item.href}
                     onClick={closeMobileMenu}
-                    className={`block px-4 py-3 rounded-xl transition-all ${
-                      location.pathname === item.href
+                    className={`block px-4 py-3 rounded-xl transition-all ${location.pathname === item.href
                         ? "text-[#4A7C2C] bg-[#F5F1E8] font-medium"
                         : "text-[#2D5016] hover:text-[#4A7C2C] hover:bg-[#F5F1E8]"
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center justify-between">
                       <span>{item.label}</span>

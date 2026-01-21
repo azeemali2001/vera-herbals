@@ -122,6 +122,72 @@
 }
 
 @layer base {
+  :root {
+    /* Organic Wellness Palette */
+    --background: 45 30% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 45 25% 96%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 45 30% 98%;
+    --popover-foreground: 30 10% 15%;
+
+    /* Sage Green Primary */
+    --primary: 142 25% 35%;
+    --primary-foreground: 45 30% 98%;
+
+    /* Warm Cream Secondary */
+    --secondary: 38 35% 92%;
+    --secondary-foreground: 30 10% 20%;
+
+    /* Soft Earth Muted */
+    --muted: 35 20% 94%;
+    --muted-foreground: 30 8% 45%;
+
+    /* Accent - Warm Terracotta */
+    --accent: 25 45% 88%;
+    --accent-foreground: 25 30% 25%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 142 25% 35%;
+
+    --radius: 1rem;
+
+    /* Custom Wellness Colors */
+    --sage: 142 25% 35%;
+    --sage-light: 142 30% 92%;
+    --sage-muted: 142 15% 75%;
+    --cream: 38 35% 95%;
+    --cream-dark: 35 25% 90%;
+    --earth: 30 10% 25%;
+    --earth-light: 30 8% 55%;
+    --terracotta: 25 45% 55%;
+    --moss: 145 20% 45%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(142 30% 92%) 0%, hsl(38 35% 95%) 50%, hsl(45 30% 98%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(45 30% 98%) 0%, hsl(38 35% 95%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(142 25% 35%) 0%, hsl(145 20% 45%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(30 10% 15% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(30 10% 15% / 0.1);
+    --shadow-elevated: 0 20px 50px -15px hsl(30 10% 15% / 0.15);
+
+    --sidebar-background: 45 30% 98%;
+    --sidebar-foreground: 30 10% 25%;
+    --sidebar-primary: 142 25% 35%;
+    --sidebar-primary-foreground: 45 30% 98%;
+    --sidebar-accent: 38 35% 92%;
+    --sidebar-accent-foreground: 30 10% 20%;
+    --sidebar-border: 35 15% 88%;
+    --sidebar-ring: 142 25% 35%;
+  }
   * {
     @apply border-border outline-ring/50;
   }
@@ -130,6 +196,10 @@
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
   }
 }
 
@@ -179,6 +249,74 @@
       font-weight: var(--font-weight-normal);
       line-height: 1.5;
     }
+  }
+}
+
+@layer components {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-heading {
+    font-size: 0.75rem; /* text-xs */
+    font-weight: 600;   /* font-semibold */
+    text-transform: uppercase;
+    letter-spacing: 0.2em; /* tracking-[0.2em] */
+    color: var(--color-sage, #B2C2B2); /* text-sage, fallback to a sage-like color */
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+@layer utilities {
+  .text-sage {
+    color: hsl(var(--sage));
+  }
+
+  .bg-sage {
+    background-color: hsl(var(--sage));
+  }
+
+  .bg-sage-light {
+    background-color: hsl(var(--sage-light));
+  }
+
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .bg-cream-dark {
+    background-color: hsl(var(--cream-dark));
+  }
+
+  .text-earth {
+    color: hsl(var(--earth));
+  }
+
+  .text-earth-light {
+    color: hsl(var(--earth-light));
+  }
+
+  .border-sage-muted {
+    border-color: hsl(var(--sage-muted));
   }
 }
 

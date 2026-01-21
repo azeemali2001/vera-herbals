@@ -1,6 +1,6 @@
 {
   "name": "vera-herbals-monorepo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Monorepo for Vera Herbals frontend and backend",
   "scripts": {
     "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
@@ -13,5 +13,9 @@
   "workspaces": [
     "frontend",
     "backend"
-  ]
+  ],
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.4.0"
+  }
 }

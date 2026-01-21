@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Leaf } from "lucide-react";
+
 
 export function Footer() {
   return (
@@ -22,7 +22,11 @@ export function Footer() {
           >
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6B9D3E] to-[#8CBE60] flex items-center justify-center">
-                <Leaf className="w-7 h-7 text-white" />
+                <img
+                  src="logo-no-bg.png"
+                  alt="Vera Herbal Wellness Logo"
+                  className="w-full h-full object-contain rounded-lg bg-white/90"
+                />
               </div>
               <div className="text-3xl text-white">VERA</div>
             </div>

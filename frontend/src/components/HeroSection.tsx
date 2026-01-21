@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Leaf } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function HeroSection() {
@@ -43,25 +43,49 @@ export function HeroSection() {
             className="space-y-8"
           >
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#6B9D3E]/20"
-            >
-              <Leaf className="w-4 h-4 text-[#4A7C2C]" />
-              <span className="text-sm text-[#2D5016]">Ayurvedic Herbal Wellness</span>
-            </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2, duration: 0.6 }}
+  className="
+    inline-flex items-center gap-3
+    px-4 py-2
+    bg-white/60 backdrop-blur-sm
+    rounded-full
+    border border-[#6B9D3E]/20
+  "
+>
+  {/* Logo badge */}
+  <div
+    className="
+      w-6 h-6
+      bg-[#E6F2D9]
+      rounded-full
+      flex items-center justify-center
+      overflow-hidden
+    "
+  >
+    <img
+      src="logo-no-bg.png"
+      alt="Vera Herbal Wellness Logo"
+      className="w-full h-full object-contain scale-110"
+    />
+  </div>
+
+  <span className="text-sm text-[#2D5016] font-medium">
+    Ayurvedic Herbal Wellness
+  </span>
+</motion.div>
+
 
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl text-[#2D5016] leading-tight">
                 Nature's Finest{" "}
                 <span className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] bg-clip-text text-transparent">
-                  Moringa & Herbal Products
+                  Organic Farm Fresh Powder
                 </span>
               </h1>
               <p className="text-xl text-[#4A7C2C]/80 max-w-xl">
-                Discover the power of traditional Ayurvedic herbs for modern wellness.
-                Boost immunity, enhance vitality, and embrace natural healing.
+                Explore our ancient organic wisdom which helps to boost immunity, enhance vitality and embrace natural healing
               </p>
             </div>
 
@@ -95,7 +119,7 @@ export function HeroSection() {
               className="flex flex-wrap gap-8 pt-8 border-t border-[#6B9D3E]/20"
             >
               <div>
-                <div className="text-3xl text-[#2D5016]">9</div>
+                <div className="text-3xl text-[#2D5016]">8+</div>
                 <div className="text-sm text-[#4A7C2C]/70">Premium Products</div>
               </div>
               <div>
@@ -103,7 +127,7 @@ export function HeroSection() {
                 <div className="text-sm text-[#4A7C2C]/70">Organic & Natural</div>
               </div>
               <div>
-                <div className="text-3xl text-[#2D5016]">Ayurvedic</div>
+                <div className="text-3xl text-[#2D5016]">Modern Wellness</div>
                 <div className="text-sm text-[#4A7C2C]/70">Traditional Roots</div>
               </div>
             </motion.div>
@@ -133,9 +157,12 @@ export function HeroSection() {
               className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-[#6B9D3E]/20"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center">
-                  <Leaf className="w-6 h-6 text-white" />
-                </div>
+                <img
+                  src="logo-no-bg.png"
+                  alt="Vera Herbal Wellness Logo Small"
+                  className="w-12 h-12 object-contain rounded-full  bg-[#E6F2D9] border border-[#6B9D3E]/20"
+                  style={{ maxWidth: 48, maxHeight: 48 }}
+                />
                 <div>
                   <div className="text-sm text-[#4A7C2C]/70">Certified</div>
                   <div className="text-[#2D5016]">100% Pure & Natural</div>
