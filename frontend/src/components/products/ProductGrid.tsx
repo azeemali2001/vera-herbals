@@ -8,7 +8,7 @@ interface AboutSection {
 
 interface Product {
   name: string;
-  image: string[];
+  image: string;
   about: AboutSection[];
   usage: string;
   highlights: string;
