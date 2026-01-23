@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { Leaf, Sparkles, Heart } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Leaf, Sparkles, Heart, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { cn } from "../../lib/utils";
 
@@ -10,7 +10,7 @@ interface AboutSection {
 
 interface Product {
   name: string;
-  image: string;
+  image: string[]; // Support for old single image
   about: AboutSection[];
   usage: string;
   highlights: string;
@@ -27,6 +27,18 @@ const icons = [Leaf, Sparkles, Heart];
 
 export function FeaturedProduct({ product, index, reversed = false }: FeaturedProductProps) {
   const [expandedSection, setExpandedSection] = useState<number | null>(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Normalize images to always be an array
+  const allImages = product.image;
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -59,7 +71,7 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
             reversed && "lg:grid-flow-dense"
           )}
         >
-          {/* Image Section */}
+          {/* Image Section with Carousel */}
           <motion.div
             variants={itemVariants}
             className={cn(
@@ -68,21 +80,56 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
             )}
           >
             <div className="relative aspect-square max-w-lg mx-auto">
-              {/* Background shape */}
               <div className="absolute inset-4 rounded-3xl bg-sage-light rotate-3 transform" />
               <div className="absolute inset-4 rounded-3xl bg-cream-dark -rotate-2 transform" />
               
-              {/* Main image container */}
-              <div className="relative rounded-3xl overflow-hidden shadow-elevated bg-background p-8 lg:p-12">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-contain"
-                />
+              <div className="relative h-full rounded-3xl overflow-hidden shadow-elevated bg-background group">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImageIndex}
+                    src={allImages[currentImageIndex]}
+                    alt={`${product.name} ${currentImageIndex + 1}`}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full h-full object-contain p-8 lg:p-12"
+                  />
+                </AnimatePresence>
+
+                {/* Carousel Controls */}
+                {allImages.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 text-earth shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 text-earth shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                    
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                      {allImages.map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setCurrentImageIndex(i)}
+                          className={cn(
+                            "w-2 h-2 rounded-full transition-all",
+                            currentImageIndex === i ? "bg-sage w-4" : "bg-sage/30"
+                          )}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
 
-              {/* Floating badge */}
-              <div className="absolute -bottom-4 -right-4 lg:-right-8 bg-sage text-primary-foreground px-6 py-3 rounded-2xl shadow-card">
+              <div className="absolute -bottom-4 -right-4 lg:-right-8 bg-sage text-primary-foreground px-6 py-3 rounded-2xl shadow-card z-20">
                 <span className="text-sm font-medium">100% Natural</span>
               </div>
             </div>
@@ -106,7 +153,6 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
               </p>
             </div>
 
-            {/* Highlights as pills */}
             <div className="flex flex-wrap gap-3">
               {highlightItems.map((highlight, i) => {
                 const Icon = icons[i % icons.length];
@@ -122,7 +168,6 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
               })}
             </div>
 
-            {/* Expandable About Sections */}
             <div className="space-y-3">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-earth mb-4">
                 About This Product
@@ -165,7 +210,6 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
               ))}
             </div>
 
-            {/* Usage */}
             <div className="p-5 rounded-xl bg-sage-light border border-sage/10">
               <h4 className="text-sm font-semibold uppercase tracking-wider text-sage mb-2">
                 Suggested Usage

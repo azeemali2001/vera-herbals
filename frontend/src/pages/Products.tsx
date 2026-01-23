@@ -7,7 +7,7 @@ import { ProductGrid } from "../components/products/ProductGrid";
 const products = [
   {
     name: "Moringa Leaf Powder",
-    image: "moringaLeafPowder.png",
+    image: ["Moringa Photo 1.png","Moringa Photo 2.png","Moringa Photo 3.png"],
     about: [
       {
         heading: "MULTI-VITAMIN POWERHOUSE",
@@ -41,7 +41,7 @@ const products = [
   },
   {
     name: "Curry Leaf Powder",
-    image: "curryLeafPowder.png",
+    image: ["curryLeafPowder.png"],
     about: [
       {
         heading: "For Cooking",
@@ -79,7 +79,7 @@ const products = [
   },
   {
     name: "Neem Leaf Powder",
-    image: "neemLeafPowder.png",
+    image: ["neemLeafPowder.png"],
     about: [
       {
         heading: "SKIN & IMMUNE SUPPORT",
@@ -95,7 +95,7 @@ const products = [
   },
   {
     name: "Tulsi Leaf Powder",
-    image: "tulsiLeafPowder.png",
+    image: ["tulsiLeafPowder.png"],
     about: [
       {
         heading: "STRESS RELIEF & IMMUNITY",
@@ -111,7 +111,7 @@ const products = [
   },
   {
     name: "Amla Powder",
-    image: "amlaPowder.png",
+    image: ["amlaPowder.png"],
     about: [
       {
         heading: "VITAMIN C POWERHOUSE",
@@ -127,7 +127,7 @@ const products = [
   },
   {
     name: "Papaya Leaf Powder",
-    image: "papayaLeafPowder.png",
+    image: ["papayaLeafPowder.png"],
     about: [
       {
         heading: "DIGESTIVE & LIVER SUPPORT",
@@ -143,7 +143,7 @@ const products = [
   },
   {
     name: "Turmeric Powder",
-    image: "turmericPowder.png",
+    image: ["turmericPowder.png"],
     about: [
       {
         heading: "ANTI-INFLAMMATORY & JOINT HEALTH",
@@ -159,7 +159,7 @@ const products = [
   },
   {
     name: "Banana Powder",
-    image: "bananaPowder.png",
+    image: ["bananaPowder.png"],
     about: [
       {
         heading: "ENERGY & ELECTROLYTE BALANCE",
@@ -175,7 +175,7 @@ const products = [
   },
   {
     name: "Hibiscus Powder",
-    image: "hibiscusPowder.png",
+    image: ["hibiscusPowder.png"],
     about: [
       {
         heading: "HEART & NATURAL ENERGY",
