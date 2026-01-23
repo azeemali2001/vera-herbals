@@ -8,7 +8,7 @@ interface AboutSection {
 
 interface Product {
   name: string;
-  image: string;
+  image: string[];
   about: AboutSection[];
   usage: string;
   highlights: string;
@@ -36,7 +36,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
         <div className="relative aspect-square mb-6 rounded-xl overflow-hidden bg-sage-light/50">
           <div className="absolute inset-0 bg-gradient-to-br from-sage-light/30 to-transparent" />
           <img
-            src={product.image}
+            src={product.image[0]}
             alt={product.name}
             className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"
           />
