@@ -71,6 +71,7 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
             reversed && "lg:grid-flow-dense"
           )}
         >
+
           {/* Image Section with Carousel */}
           <motion.div
             variants={itemVariants}
@@ -80,55 +81,89 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
             )}
           >
             <div className="relative aspect-square max-w-lg mx-auto">
-              <div className="absolute inset-4 rounded-3xl bg-sage-light rotate-3 transform" />
-              <div className="absolute inset-4 rounded-3xl bg-cream-dark -rotate-2 transform" />
+              {/* Decorative background layers with subtle animation*/}
+              <motion.div 
+                className="absolute inset-6 rounded-[2.5rem] bg-sage-light"
+                animate={{ 
+                  rotate: [2, -2, 2],
+                  scale: [1, 1.02, 1]
+                }}
+                transition={{ 
+                  duration: 8, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
               
-              <div className="relative h-full rounded-3xl overflow-hidden shadow-elevated bg-background group">
+              {/* Main carousel container */}
+              {/* UPDATED: Changed background to be slightly darker than bg-sage-light using brightness filter */}
+              <div className="relative h-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-sage-light brightness-[0.95] backdrop-blur-sm border border-sage/20">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={currentImageIndex}
                     src={allImages[currentImageIndex]}
                     alt={`${product.name} ${currentImageIndex + 1}`}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 0.4 }}
+                    initial={{ opacity: 0, x: 100, scale: 0.9 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: -100, scale: 0.9 }}
+                    transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
                     className="w-full h-full object-contain p-8 lg:p-12"
                   />
                 </AnimatePresence>
 
-                {/* Carousel Controls */}
+                {/* Elegant gradient overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-900/5 via-transparent to-transparent pointer-events-none" />
+
+                {/* Carousel Controls - Always visible with elegant design */}
                 {allImages.length > 1 && (
                   <>
-                    <button
+                    <motion.button
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 text-earth shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                      whileHover={{ scale: 1.1, x: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 backdrop-blur-md text-earth shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-200/30 z-10"
                     >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button
+                      <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
+                    </motion.button>
+                    <motion.button
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 text-earth shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                      whileHover={{ scale: 1.1, x: 2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 backdrop-blur-md text-earth shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-200/30 z-10"
                     >
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
+                      <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
+                    </motion.button>
                     
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {/* Enhanced dot indicators */}
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2  backdrop-blur-md px-4 py-2.5 rounded-full shadow-lg border border-orange-200/30 z-10">
                       {allImages.map((_, i) => (
-                        <button
+                        <motion.button
                           key={i}
                           onClick={() => setCurrentImageIndex(i)}
+                          whileHover={{ scale: 1.2 }}
+                          whileTap={{ scale: 0.9 }}
                           className={cn(
-                            "w-2 h-2 rounded-full transition-all",
-                            currentImageIndex === i ? "bg-sage w-4" : "bg-sage/30"
+                            "rounded-full transition-all duration-300",
+                            currentImageIndex === i 
+                              ? "bg-sage w-8 h-2.5" 
+                              : "bg-sage/25 w-2.5 h-2.5 hover:bg-sage/40"
                           )}
+                          aria-label={`View image ${i + 1}`}
                         />
                       ))}
+                    </div>
+
+                    {/* Image counter */}
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md border border-orange-200/30 z-10">
+                      <span className="text-xs font-medium text-earth">
+                        {currentImageIndex + 1} / {allImages.length}
+                      </span>
                     </div>
                   </>
                 )}
               </div>
 
+              {/* Original badge style maintained */}
               <div className="absolute -bottom-4 -right-4 lg:-right-8 bg-sage text-primary-foreground px-6 py-3 rounded-2xl shadow-card z-20">
                 <span className="text-sm font-medium">100% Natural</span>
               </div>

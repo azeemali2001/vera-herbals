@@ -41,7 +41,7 @@ const products = [
   },
   {
     name: "Curry Leaf Powder",
-    image: ["curryLeafPowder.png"],
+    image: ["curryLeafPowder.png","curryLeafPowder.png","curryLeafPowder.png"],
     about: [
       {
         heading: "For Cooking",
