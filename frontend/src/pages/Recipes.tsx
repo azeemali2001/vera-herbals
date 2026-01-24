@@ -1,299 +1,457 @@
+
+import { useState } from "react";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { Toaster } from "../components/ui/sonner";
 
-const recipes = [
+const recipeGroups = [
   {
-    title: "Watermelon Moringa Refresher",
-    image: "recipes/Watermelon Juice.jpg",
-    description: "A refreshing and hydrating fruit drink with a nutrient-packed boost.",
-    ingredients: [
-      "4 cups fresh watermelon cubes",
-      "1 tsp Moringa Powder",
-      "Squeeze of lime",
-      "Pinch of black salt",
-      "Fresh mint leaves"
-    ],
-    instructions:
-      "Blend ingredients until smooth. For a cleaner texture, strain the juice. Serve immediately over ice.",
-    benefits: "High hydration, essential vitamins, and natural energy boost."
-  },
-  {
-    title: "Moringa Buttermilk (Spiced Chaas)",
-    image: "recipes/Buttermilk 2.jpg",
-    description: "A savory, traditional yogurt drink to aid digestion and cool the body.",
-    ingredients: [
-      "1 cup plain yogurt",
-      "2 cups water",
-      "1/2 tsp Moringa Powder",
-      "Roasted cumin powder",
-      "Black salt",
-      "Finely chopped ginger",
-      "Fresh cilantro leaves"
-    ],
-    instructions:
-      "Whisk yogurt, water, and powder until frothy. Season with spices and ginger. Stir in cilantro and serve chilled.",
-    benefits: "Aids digestion, probiotic support, and energy boosting."
-  },
-  {
-    title: "Moringa Hummus",
-    image: "recipes/Humus.jpg",
-    description: "Elevate your favorite dip with a superfood twist.",
-    ingredients: [
-      "1 tsp Moringa Powder",
-      "1 cup hummus (store-bought or homemade)",
-      "Carrot sticks",
-      "Pita bread"
-    ],
-    instructions:
-      "Mix the moringa powder into the hummus until well combined. Serve with carrot sticks or pita bread.",
-    benefits: "Rich in plant-based protein and added micronutrients."
-  },
-  {
-    title: "Moringa Oatmeal",
-    image: "recipes/Oatmeal.jpg",
-    description: "A balanced, earthy breakfast to kickstart your morning routine.",
-    ingredients: [
-      "1 tsp Moringa Powder",
-      "1 serving cooked or overnight oats",
-      "1 sliced banana",
-      "Drizzle of honey"
-    ],
-    instructions:
-      "Stir moringa powder into your oats. Top with sliced bananas and honey to balance the earthy flavor.",
-    benefits: "High in fiber, iron, and sustained energy release."
-  },
-  {
-    title: "Green Pancakes",
-    image: "recipes/Pancake.jpg",
-    description: "A fun and healthy way to enjoy a classic breakfast with an iron boost.",
-    ingredients: [
-      "1 tbsp Moringa Powder",
-      "Pancake or waffle batter"
-    ],
-    instructions:
-      "Add moringa powder to your favorite batter. Mix well until bright green and cook as usual.",
-    benefits: "Nutrient-dense, iron-rich, and kid-friendly."
-  },
-  {
-    title: "Moringa Pesto Pasta",
-    image: "recipes/Pasta.jpg",
-    description: "A nutrient-dense take on a classic Italian favorite.",
-    ingredients: [
-      "1 tbsp Moringa Powder",
-      "Fresh basil",
-      "Garlic",
-      "Pine nuts",
-      "Olive oil",
-      "Parmesan cheese",
-      "Pasta"
-    ],
-    instructions:
-      "Blend pesto ingredients with moringa powder. Toss with hot, freshly cooked pasta.",
-    benefits: "Superfood dinner packed with antioxidants and healthy fats."
-  },
-  {
-    title: "Popcorn Seasoning",
-    image: "recipes/Popcorn.jpg",
-    description: "A guilt-free savory snack with a nutritional superfood dusting.",
-    ingredients: [
-      "Moringa Powder",
-      "Freshly popped popcorn",
-      "Olive oil",
-      "Nutritional yeast",
-      "Pinch of salt"
-    ],
-    instructions:
-      "Toss popcorn with olive oil, nutritional yeast, salt, and moringa powder.",
-    benefits: "Healthy snacking with vitamins and minerals."
-  },
+    product: "Moringa Powder",
+    accent: "from-green-50 via-emerald-50 to-green-100",
+    tag: "Moringa",
+    recipes: [
+      {
+        title: "Watermelon Moringa Refresher",
+        image: "recipes/Watermelon Juice.jpg",
+        description: "A refreshing hydrating drink with a nutrient boost.",
+        ingredients: [
+          "4 cups fresh watermelon",
+          "1 tsp Moringa Powder",
+          "Lime juice",
+          "Black salt",
+          "Mint leaves"
+        ],
+        instructions:
+          "Blend all ingredients until smooth. Strain if needed and serve chilled.",
+        benefits: "Hydration, vitamins, natural energy"
+      },
+      {
+        title: "Watermelon Moringa Refresher",
+        image: "recipes/Watermelon Juice.jpg",
+        description: "A refreshing hydrating drink with a nutrient boost.",
+        ingredients: [
+          "4 cups fresh watermelon",
+          "1 tsp Moringa Powder",
+          "Lime juice",
+          "Black salt",
+          "Mint leaves"
+        ],
+        instructions:
+          "Blend all ingredients until smooth. Strain if needed and serve chilled.",
+        benefits: "Hydration, vitamins, natural energy"
+      },
+      {
+        title: "Watermelon Moringa Refresher",
+        image: "recipes/Watermelon Juice.jpg",
+        description: "A refreshing hydrating drink with a nutrient boost.",
+        ingredients: [
+          "4 cups fresh watermelon",
+          "1 tsp Moringa Powder",
+          "Lime juice",
+          "Black salt",
+          "Mint leaves"
+        ],
+        instructions:
+          "Blend all ingredients until smooth. Strain if needed and serve chilled.",
+        benefits: "Hydration, vitamins, natural energy"
+      },
+      {
+        title: "Watermelon Moringa Refresher",
+        image: "recipes/Watermelon Juice.jpg",
+        description: "A refreshing hydrating drink with a nutrient boost.",
+        ingredients: [
+          "4 cups fresh watermelon",
+          "1 tsp Moringa Powder",
+          "Lime juice",
+          "Black salt",
+          "Mint leaves"
+        ],
+        instructions:
+          "Blend all ingredients until smooth. Strain if needed and serve chilled.",
+        benefits: "Hydration, vitamins, natural energy"
+      },
 
-  {
-    title: "Radiant Hibiscus Tea",
-    image: "hibiscusPowder.png",
-    description: "A vibrant antioxidant-rich tea that supports digestion and blood pressure.",
-    ingredients: [
-      "1/2 tsp Hibiscus Powder",
-      "1 cup hot water",
-      "1 tsp honey (optional)",
-      "Squeeze of lime (optional)"
-    ],
-    instructions:
-      "Mix hibiscus powder into hot water. Stir well. Add honey and lime if desired. Notice the color shift to ruby red.",
-    benefits: "Powerful antioxidants, digestion support, and heart health."
+      {
+        title: "Moringa Oatmeal",
+        image: "recipes/Oatmeal.jpg",
+        description: "A grounding, earthy breakfast bowl.",
+        ingredients: [
+          "1 tsp Moringa Powder",
+          "Cooked oats",
+          "Banana slices",
+          "Honey"
+        ],
+        instructions:
+          "Stir moringa into warm oats. Top with banana and honey.",
+        benefits: "Fiber-rich, iron boost, sustained energy"
+      },
+      {
+        title: "Green Pancakes",
+        image: "recipes/Pancake.jpg",
+        description: "Fun, vibrant pancakes with added iron.",
+        ingredients: ["Pancake batter", "1 tbsp Moringa Powder"],
+        instructions:
+          "Mix moringa into batter and cook pancakes as usual.",
+        benefits: "Kid-friendly, nutrient-dense"
+      }
+    ]
   },
   {
-    title: "Hibiscus Glow Face Mask",
-    image: "recipes/Hibiscus Face Mask.jpg",
-    description: "A natural glow-boosting mask for hydrated, radiant skin.",
-    ingredients: [
-      "1 tsp Hibiscus Powder",
-      "1 tbsp yogurt or aloe vera gel"
-    ],
-    instructions:
-      "Mix into a smooth paste. Apply on clean face for 10–15 minutes. Rinse with lukewarm water.",
-    benefits: "Gentle exfoliation, hydration, brighter and firmer skin."
+    product: "Hibiscus Powder",
+    accent: "from-rose-50 via-pink-50 to-rose-100",
+    tag: "Hibiscus",
+    recipes: [
+      {
+        title: "Radiant Hibiscus Tea",
+        image: "hibiscusPowder.png",
+        description: "Ruby red antioxidant-rich herbal tea.",
+        ingredients: [
+          "1/2 tsp Hibiscus Powder",
+          "1 cup hot water",
+          "Honey (optional)",
+          "Lime (optional)"
+        ],
+        instructions:
+          "Mix hibiscus powder in hot water. Sweeten if desired.",
+        benefits: "Heart health, antioxidants"
+      },
+      {
+        title: "Hibiscus Glow Face Mask",
+        image: "recipes/Hibiscus Face Mask.jpg",
+        description: "A natural glow-boosting skincare ritual.",
+        ingredients: [
+          "1 tsp Hibiscus Powder",
+          "Yogurt or aloe vera gel"
+        ],
+        instructions:
+          "Mix into a paste. Apply for 10–15 minutes and rinse.",
+        benefits: "Brightening, gentle exfoliation"
+      },
+      {
+        title: "Hibiscus Glow Face Mask",
+        image: "recipes/Hibiscus Face Mask.jpg",
+        description: "A natural glow-boosting skincare ritual.",
+        ingredients: [
+          "1 tsp Hibiscus Powder",
+          "Yogurt or aloe vera gel"
+        ],
+        instructions:
+          "Mix into a paste. Apply for 10–15 minutes and rinse.",
+        benefits: "Brightening, gentle exfoliation"
+      },
+      {
+        title: "Hibiscus Glow Face Mask",
+        image: "recipes/Hibiscus Face Mask.jpg",
+        description: "A natural glow-boosting skincare ritual.",
+        ingredients: [
+          "1 tsp Hibiscus Powder",
+          "Yogurt or aloe vera gel"
+        ],
+        instructions:
+          "Mix into a paste. Apply for 10–15 minutes and rinse.",
+        benefits: "Brightening, gentle exfoliation"
+      },
+      {
+        title: "Hibiscus Glow Face Mask",
+        image: "recipes/Hibiscus Face Mask.jpg",
+        description: "A natural glow-boosting skincare ritual.",
+        ingredients: [
+          "1 tsp Hibiscus Powder",
+          "Yogurt or aloe vera gel"
+        ],
+        instructions:
+          "Mix into a paste. Apply for 10–15 minutes and rinse.",
+        benefits: "Brightening, gentle exfoliation"
+      }
+    ]
   },
   {
-    title: "Hibiscus Hair Conditioning Mask",
-    image: "recipes/Hibiscus Hair Mask.jpg",
-    description: "A strengthening hair mask for shine, root health, and scalp nourishment.",
-    ingredients: [
-      "2 tbsp Hibiscus Powder",
-      "Water or coconut milk (as needed)"
-    ],
-    instructions:
-      "Mix into a thick paste. Apply to scalp and hair length. Leave for 30 minutes, then wash with mild shampoo.",
-    benefits: "Stronger roots, reduced premature greying, natural shine."
-  },
-  {
-    title: "Curry Leaf Rice (Karivepaku Annam)",
-    image: "recipes/Curry Leaf Rice.jpg",
-    description: "A quick South Indian-style rice dish packed with flavor and nutrients.",
-    ingredients: [
-      "1 tbsp Curry Leaf Powder",
-      "Hot steamed rice",
-      "1 tsp ghee or sesame oil",
-      "Roasted peanuts"
-    ],
-    instructions:
-      "Mix curry leaf powder into hot rice with ghee or oil. Top with roasted peanuts and serve warm.",
-    benefits: "Supports digestion, rich in iron and antioxidants."
-  },
-  {
-    title: "Curry Leaf Spiced Buttermilk",
-    image: "recipes/Curry Leaf Buttermilk.jpg",
-    description: "A refreshing digestive drink with cooling properties.",
-    ingredients: [
-      "1 glass chilled buttermilk",
-      "1/2 tsp Curry Leaf Powder",
-      "Pinch of black salt",
-      "Grated ginger"
-    ],
-    instructions:
-      "Whisk all ingredients together and serve chilled.",
-    benefits: "Improves digestion and gut health."
-  },
-  {
-    title: "Curry Leaf Savory Popcorn",
-    image: "recipes/Curry Leaf Popcorn.jpg",
-    description: "An Indian-style savory snack with a superfood twist.",
-    ingredients: [
-      "Freshly popped popcorn",
-      "Olive oil",
-      "Salt",
-      "Curry Leaf Powder"
-    ],
-    instructions:
-      "Toss popcorn with olive oil, salt, and a generous dusting of curry leaf powder.",
-    benefits: "Healthy snacking with added minerals."
-  },
-  {
-    title: "Curry Leaf Roasted Vegetables",
-    image: "recipes/Roasted Veggies.jpg",
-    description: "Flavorful roasted veggies enhanced with curry leaf goodness.",
-    ingredients: [
-      "Potatoes, cauliflower, or carrots",
-      "Curry Leaf Powder",
-      "Turmeric",
-      "Cumin",
-      "Olive oil"
-    ],
-    instructions:
-      "Toss vegetables with oil, spices, and curry leaf powder. Roast until golden and tender.",
-    benefits: "Antioxidant-rich and metabolism-friendly."
-  },
-  {
-    title: "Curry Leaf Tadka Boost",
-    image: "recipes/Tadka.jpg",
-    description: "Enhance dal or sambar with a fragrant curry leaf tempering.",
-    ingredients: [
-      "1 tsp Curry Leaf Powder",
-      "Oil",
-      "Mustard seeds",
-      "Dried red chilies"
-    ],
-    instructions:
-      "Add curry leaf powder to hot oil tempering just before pouring over dal or sambar.",
-    benefits: "Boosts aroma, digestion, and nutrient absorption."
+    product: "Curry Leaf Powder",
+    accent: "from-amber-50 via-orange-50 to-amber-100",
+    tag: "Curry Leaf",
+    recipes: [
+      {
+        title: "Curry Leaf Rice",
+        image: "recipes/Curry Leaf Rice.jpg",
+        description: "South Indian comfort food with superfood power.",
+        ingredients: [
+          "Hot steamed rice",
+          "1 tbsp Curry Leaf Powder",
+          "Ghee or sesame oil",
+          "Roasted peanuts"
+        ],
+        instructions:
+          "Mix curry leaf powder into hot rice with ghee. Serve warm.",
+        benefits: "Digestion support, iron-rich"
+      },
+      {
+        title: "Curry Leaf Buttermilk",
+        image: "recipes/Curry Leaf Buttermilk.jpg",
+        description: "Cooling, digestive spiced chaas.",
+        ingredients: [
+          "Chilled buttermilk",
+          "1/2 tsp Curry Leaf Powder",
+          "Black salt",
+          "Ginger"
+        ],
+        instructions:
+          "Whisk all ingredients and serve chilled.",
+        benefits: "Gut health, cooling effect"
+      },
+      {
+        title: "Curry Leaf Buttermilk",
+        image: "recipes/Curry Leaf Buttermilk.jpg",
+        description: "Cooling, digestive spiced chaas.",
+        ingredients: [
+          "Chilled buttermilk",
+          "1/2 tsp Curry Leaf Powder",
+          "Black salt",
+          "Ginger"
+        ],
+        instructions:
+          "Whisk all ingredients and serve chilled.",
+        benefits: "Gut health, cooling effect"
+      },
+      {
+        title: "Curry Leaf Buttermilk",
+        image: "recipes/Curry Leaf Buttermilk.jpg",
+        description: "Cooling, digestive spiced chaas.",
+        ingredients: [
+          "Chilled buttermilk",
+          "1/2 tsp Curry Leaf Powder",
+          "Black salt",
+          "Ginger"
+        ],
+        instructions:
+          "Whisk all ingredients and serve chilled.",
+        benefits: "Gut health, cooling effect"
+      },
+      {
+        title: "Curry Leaf Buttermilk",
+        image: "recipes/Curry Leaf Buttermilk.jpg",
+        description: "Cooling, digestive spiced chaas.",
+        ingredients: [
+          "Chilled buttermilk",
+          "1/2 tsp Curry Leaf Powder",
+          "Black salt",
+          "Ginger"
+        ],
+        instructions:
+          "Whisk all ingredients and serve chilled.",
+        benefits: "Gut health, cooling effect"
+      }
+    ]
   }
 ];
 
+
+
+
+type Recipe = typeof recipeGroups[number]["recipes"][number];
+
 export default function Recipes() {
+  const [activeRecipe, setActiveRecipe] = useState<Recipe | null>(null);
+
+  
+
   return (
-    <main className="min-h-screen bg-white">
+    <main className="bg-white">
       <Navigation />
 
-      <div className="pt-20">
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Herbal Recipes
-            </h1>
-            <p className="text-lg text-gray-600">
-              Discover delicious ways to incorporate our herbal powders into
-              your daily routine.
-            </p>
-          </div>
+      {/* HERO */}
+      <section className="pt-28 pb-20 text-center max-w-4xl mx-auto px-6">
+        <h1 className="text-5xl font-bold text-gray-900">
+          Herbal Recipes
+        </h1>
+        <p className="mt-5 text-lg text-gray-600">
+          Thoughtfully curated ways to enjoy our herbal powders — food,
+          drinks, and rituals.
+        </p>
+      </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {recipes.map((recipe, index) => (
-              <div
-                key={index}
-                className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow"
-              >
-                <div className="w-full aspect-[4/3] bg-gray-100 rounded-lg mb-4 overflow-hidden">
-                  <img
-                    src={recipe.image}
-                    alt={recipe.title}
-                    className="w-full h-full object-cover"
-                  />
+      {/* PRODUCT SECTIONS */}
+
+
+      <div className="space-y-36">
+        {recipeGroups.map((group, idx) => {
+          return (
+            <section
+              key={idx}
+              className={`relative bg-gradient-to-br ${group.accent} rounded-3xl shadow-xl mx-2 md:mx-0`}
+            >
+              <div className="absolute inset-0 opacity-30 blur-2xl pointer-events-none" style={{background: 'radial-gradient(circle at 60% 40%, #fff 0%, transparent 70%)'}}></div>
+              <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
+                {/* Section Header */}
+                <div className="mb-14 max-w-xl">
+                  <span className="inline-block text-xs uppercase tracking-wider bg-black/70 text-white px-3 py-1 rounded-full mb-4 shadow">
+                    Recipes with
+                  </span>
+                  <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 drop-shadow-lg">
+                    {group.product}
+                  </h2>
+                  <p className="text-gray-600 mt-4 text-lg">
+                    Simple, nourishing ideas designed to fit effortlessly into your daily routine.
+                  </p>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {recipe.title}
-                </h3>
+                {/* Multi-card Carousel */}
+                <div className="relative">
+                  {/* Gradient fade left */}
+                  <div className="pointer-events-none absolute left-0 top-0 h-full w-10 z-10 bg-gradient-to-r from-white/90 to-transparent" />
+                  {/* Gradient fade right */}
+                  <div className="pointer-events-none absolute right-0 top-0 h-full w-10 z-10 bg-gradient-to-l from-white/90 to-transparent" />
+                  <div
+                    className="flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-emerald-200 scrollbar-track-transparent hide-scrollbar"
+                    style={{scrollbarWidth: 'none'}}
+                  >
+                    {group.recipes.map((recipe, i) => (
+                      <div
+                        key={i}
+                        onClick={() => setActiveRecipe(recipe)}
+                        className="min-w-[320px] max-w-xs bg-white/80 backdrop-blur-lg rounded-3xl shadow-lg hover:shadow-2xl transition-all cursor-pointer snap-center border border-gray-100 hover:scale-105 duration-300 group relative"
+                      >
+                        <div className="aspect-[4/3] overflow-hidden rounded-t-3xl relative">
+                          <img
+                            src={recipe.image}
+                            alt={recipe.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                          <div className="absolute bottom-2 right-2 bg-white/70 px-3 py-1 rounded-full text-xs font-semibold text-gray-700 shadow">
+                            {group.tag}
+                          </div>
+                        </div>
+                        <div className="p-6">
+                          <h3 className="text-xl font-bold text-gray-900 mb-1">
+                            {recipe.title}
+                          </h3>
+                          <p className="text-sm text-gray-600 mb-2 min-h-[40px]">
+                            {recipe.description}
+                          </p>
+                          <div className="flex items-center gap-2 mt-4">
+                            <span className="inline-block bg-emerald-100 text-emerald-700 text-xs px-2 py-1 rounded-full font-medium">
+                              View recipe
+                            </span>
+                            <span className="text-emerald-400 text-lg">→</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+      </div>
 
-                <p className="text-sm text-gray-600 mb-4">
-                  {recipe.description}
-                </p>
 
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-900 mb-2 text-sm">
-                    Ingredients
+      {/* MODAL */}
+      {/* MODAL */}
+      {activeRecipe && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" 
+            onClick={() => setActiveRecipe(null)}
+          />
+
+          {/* Modal Card Structure */}
+          <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-fadeInUp font-sans">
+            
+            {/* Close Button */}
+            <button
+              onClick={() => setActiveRecipe(null)}
+              className="absolute top-4 right-4 z-20 bg-white/90 hover:bg-rose-50 text-gray-500 hover:text-rose-600 rounded-full p-2 shadow-sm border border-gray-100 transition-all backdrop-blur-md"
+              aria-label="Close"
+            >
+              <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Injecting styles to hide scrollbar for Webkit (Chrome, Safari, newer Edge). 
+               The 'hide-scrollbar' class is used below.
+            */}
+            <style>{`
+              .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
+
+            {/* Scrollable Content Container 
+               We use inline styles for Firefox/IE support to hide the bar,
+               and the 'hide-scrollbar' class for others.
+            */}
+            <div 
+              className="overflow-y-auto flex-1 bg-white hide-scrollbar"
+              style={{ 
+                scrollbarWidth: 'none',  /* Firefox */
+                msOverflowStyle: 'none'  /* IE and Edge */
+              }}
+            >
+              
+              {/* Image Header with Title Overlay */}
+              <div className="relative h-64 sm:h-72 w-full shrink-0">
+                <img
+                  src={activeRecipe.image}
+                  alt={activeRecipe.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+                
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                   <h3 className="text-3xl font-extrabold drop-shadow-lg leading-tight tracking-tight">
+                    {activeRecipe.title}
+                  </h3>
+                </div>
+              </div>
+
+              {/* Text Content */}
+              <div className="p-6 sm:p-8 space-y-8 bg-white">
+                
+                {/* Ingredients */}
+                <div>
+                  <h4 className="flex items-center gap-2 text-lg font-bold text-emerald-800 mb-4 border-b border-emerald-100 pb-2 uppercase tracking-wider text-sm">
+                    <span className="text-xl">🌿</span> Ingredients
                   </h4>
-                  <ul className="text-xs text-gray-600 space-y-1">
-                    {recipe.ingredients.map((ingredient, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 mt-1.5" />
-                        {ingredient}
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                    {activeRecipe.ingredients.map((ing, i) => (
+                      <li key={i} className="flex items-start text-gray-700 font-medium">
+                        <svg className="w-5 h-5 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>{ing}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-900 mb-1 text-sm">
-                    Instructions
+                {/* Instructions */}
+                <div>
+                   <h4 className="flex items-center gap-2 text-lg font-bold text-emerald-800 mb-4 border-b border-emerald-100 pb-2 uppercase tracking-wider text-sm">
+                    <span className="text-xl">🥣</span> Instructions
                   </h4>
-                  <p className="text-xs text-gray-600">
-                    {recipe.instructions}
+                  <p className="text-gray-600 leading-relaxed text-base whitespace-pre-line">
+                    {activeRecipe.instructions}
                   </p>
                 </div>
 
-                <div>
-                  <h4 className="font-medium text-gray-900 mb-1 text-sm">
-                    Benefits
+                {/* Benefits Bubble */}
+                <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-5 border border-emerald-100 shadow-sm">
+                  <h4 className="flex items-center gap-2 text-sm font-bold text-emerald-800 uppercase tracking-wider mb-3">
+                    <span className="text-lg">✨</span> The Benefits
                   </h4>
-                  <p className="text-xs text-gray-600">
-                    {recipe.benefits}
+                  <p className="text-emerald-900 font-medium leading-relaxed">
+                    {activeRecipe.benefits}
                   </p>
                 </div>
+
+                {/* Extra space at bottom for easier scrolling */}
+                <div className="h-4"></div>
               </div>
-            ))}
+            </div>
+            
           </div>
         </div>
-      </div>
+      )}
 
       <Footer />
       <Toaster position="top-right" />
