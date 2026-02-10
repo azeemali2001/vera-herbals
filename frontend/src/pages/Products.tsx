@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
-import { ProductHero } from "../components/products/ProductHero";
 import { FeaturedProduct } from "../components/products/FeaturedProduct";
 import { ProductGrid } from "../components/products/ProductGrid";
 
@@ -231,21 +230,24 @@ export default function Products() {
     <>
       <Navigation />
       {/* Hero Section */}
-      <ProductHero />
+      {/* <ProductHero /> */}
 
       {/* Featured Products - Alternating Layout */}
       {featuredProducts.map((product, index) => (
         <div id={product.id} key={product.id}>
           <FeaturedProduct
-            product={product}
-            reversed={index % 2 === 1}
+              key={product.name}
+              product={product}
+              index={index}
+              reversed={index % 2 === 1}
           />
         </div>
       ))}
 
       {/* Other Products Grid */}
-      <ProductGrid products={otherProducts} />
-      
+      <ProductGrid products={otherProducts}           
+            title="More Herbal Treasures"
+            subtitle="Explore our complete range of nature's finest remedies, each carefully selected for quality and potency." />
       <Footer />
     </>
   );

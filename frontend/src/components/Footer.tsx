@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -31,28 +31,87 @@ export function Footer() {
               <div className="text-3xl text-white">VERA</div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed">
-              Pure Moringa. Trusted Supply.
+              Nature's Wisdom. <br/>
+              Modern Wellness. <br/>  
+              Pure Herbal Solutions.
             </p>
           </motion.div>
 
-          {/* Tagline Section */}
-          <motion.div
+          {/* Footer Navigation Menu - Centered */}
+          <motion.nav
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-center space-y-3"
+            className="text-center"
           >
-            <p className="text-lg text-white/90">
-              Your Premium B2B Moringa Partner
-            </p>
-            <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#8CBE60] animate-pulse" />
-              <span className="text-sm text-white/70">Serving businesses worldwide</span>
-            </div>
-          </motion.div>
+            <ul className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm">
+              <li>
+                <Link 
+                  to="/about-us" 
+                  className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li className="text-white/30">•</li>
+              <li>
+                <Link 
+                  to="/blog" 
+                  className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li className="text-white/30">•</li>
+              <li>
+                <Link 
+                  to="/contact-us" 
+                  className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
+                >
+                  Contact Us
+                </Link>
+              </li>
+              <li className="text-white/30">•</li>
+              <li>
+                <Link 
+                  to="/shipping-policy" 
+                  className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
+                >
+                  Shipping Policy
+                </Link>
+              </li>
+              <li className="text-white/30">•</li>
+              <li>
+                <Link 
+                  to="/cancellation-refund" 
+                  className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
+                >
+                  Cancellation & Refund
+                </Link>
+              </li>
+              <li className="text-white/30">•</li>
+              <li>
+                <Link 
+                  to="/privacy-policy" 
+                  className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li className="text-white/30">•</li>
+              <li>
+                <Link 
+                  to="/terms-conditions" 
+                  className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
+                >
+                  Terms & Conditions
+                </Link>
+              </li>
+            </ul>
+          </motion.nav>
 
-          {/* Contact Placeholder */}
+          {/* Contact Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,9 +119,8 @@ export function Footer() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-right space-y-2"
           >
-            <div className="text-sm text-white/70">Get in Touch</div>
-            <div className="text-white">contact@veramoringa.com</div>
-            <div className="text-white/70 text-sm">+91 XXXXX XXXXX</div>
+            <div className="text-white">connect@globalveridian.com</div>
+            <div className="text-white/70 text-sm">Chat on Whatsapp</div>
           </motion.div>
         </div>
 
@@ -75,21 +133,11 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-center space-y-4"
+          className="text-center"
         >
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60">
-            <div>FSSAI Certified</div>
-            <div>•</div>
-            <div>ISO Compliant</div>
-            <div>•</div>
-            <div>GMP Standards</div>
-            <div>•</div>
-            <div>Export Ready</div>
-          </div>
-          
-          <p className="text-sm text-white/50">
+          {/* <p className="text-sm text-white/50">
             © {new Date().getFullYear()} VERA. All rights reserved. Crafted for B2B Excellence.
-          </p>
+          </p> */}
         </motion.div>
       </div>
     </footer>
