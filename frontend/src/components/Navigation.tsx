@@ -79,7 +79,7 @@ export function Navigation() {
                   />
                 </div>
 
-                <div className="text-2xl text-[#2D5016] tracking-tight font-serif font-semibold">
+                <div className="text-2xl text-[#6BAE3C] tracking-tight font-serif font-semibold">
                   VERA
                 </div>
               </Link>

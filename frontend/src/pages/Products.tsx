@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { ProductHero } from "../components/products/ProductHero";
@@ -6,6 +8,7 @@ import { ProductGrid } from "../components/products/ProductGrid";
 
 const products = [
   {
+    id: "moringa-leaf-powder", // Added unique ID
     name: "Moringa Leaf Powder",
     image: ["Moringa Photo 1.png","Moringa Photo 2.png","Moringa Photo 3.png"],
     about: [
@@ -36,10 +39,10 @@ const products = [
     ],
     usage: "Take 1 teaspoon (4g) daily on an empty stomach. Can be consumed with water or mixed into juices, smoothies, vegetables, curries, dal, etc.",
     highlights: "Natural Multi-Vitamin • Immunity Booster • Weight Management Support • Good for Hair & Skin • Plant-Based Protein Source",
-    description:
-      "A complete daily superfood packed with plant-based protein, essential vitamins, minerals, and antioxidants. Supports overall wellness, boosts energy, and promotes healthy hair, skin, and immunity—naturally."
+    description: "A complete daily superfood packed with plant-based protein, essential vitamins, minerals, and antioxidants. Supports overall wellness, boosts energy, and promotes healthy hair, skin, and immunity—naturally."
   },
   {
+    id: "curry-leaf-powder", // Added unique ID
     name: "Curry Leaf Powder",
     image: ["curryLeafPowder.png","curryLeafPowder.png","curryLeafPowder.png"],
     about: [
@@ -74,10 +77,10 @@ const products = [
     ],
     usage: "Take 1 teaspoon (4g) daily on an empty stomach. Can be consumed with water or mixed into juices, smoothies, vegetables, curries, dal, etc.",
     highlights: "Rich Aroma • Hair Health • Vitamin B Source • Authentic Indian Flavor",
-    description:
-      "Premium curry leaf powder for culinary and wellness use. Adds authentic flavor to dishes and supports healthy hair growth."
+    description: "Premium curry leaf powder for culinary and wellness use. Adds authentic flavor to dishes and supports healthy hair growth."
   },
   {
+    id: "neem-leaf-powder", // Added unique ID
     name: "Neem Leaf Powder",
     image: ["neemLeafPowder.png"],
     about: [
@@ -94,6 +97,7 @@ const products = [
     description: "Neem leaf powder supports clear skin and a healthy immune system with natural detoxifying properties."
   },
   {
+    id: "tulsi-leaf-powder", // Added unique ID
     name: "Tulsi Leaf Powder",
     image: ["tulsiLeafPowder.png"],
     about: [
@@ -110,6 +114,7 @@ const products = [
     description: "Tulsi powder helps manage stress, supports immunity, and promotes respiratory wellness."
   },
   {
+    id: "amla-powder", // Added unique ID
     name: "Amla Powder",
     image: ["amlaPowder.png"],
     about: [
@@ -126,6 +131,7 @@ const products = [
     description: "Amla powder is a potent source of Vitamin C, supporting immunity, hair, and skin health."
   },
   {
+    id: "papaya-leaf-powder", // Added unique ID
     name: "Papaya Leaf Powder",
     image: ["papayaLeafPowder.png"],
     about: [
@@ -142,6 +148,7 @@ const products = [
     description: "Papaya leaf powder aids digestion and supports liver health with natural enzymes."
   },
   {
+    id: "turmeric-powder", // Added unique ID
     name: "Turmeric Powder",
     image: ["turmericPowder.png"],
     about: [
@@ -158,6 +165,7 @@ const products = [
     description: "Turmeric powder is known for its anti-inflammatory and antioxidant benefits, supporting joint health."
   },
   {
+    id: "banana-powder", // Added unique ID
     name: "Banana Powder",
     image: ["bananaPowder.png"],
     about: [
@@ -174,6 +182,7 @@ const products = [
     description: "Banana powder provides natural energy, supports digestion, and helps maintain electrolyte balance."
   },
   {
+    id: "hibiscus-powder", // Added unique ID
     name: "Hibiscus Powder",
     image: ["hibiscusPowder.png"],
     about: [
@@ -198,33 +207,46 @@ const featuredProducts = products.slice(0, 2);
 const otherProducts = products.slice(2);
 
 export default function Products() {
-  return (
-    <main className="min-h-screen bg-background">
-      <Navigation />
-      
-      <div className="pt-16">
-        {/* Hero Section */}
-        <ProductHero />
+  const location = useLocation();
 
-        {/* Featured Products - Alternating Layout */}
-        {featuredProducts.map((product, index) => (
+  useEffect(() => {
+    // Check if there's a hash in the URL (e.g., #moringa-leaf-powder)
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      
+      if (element) {
+        // Wait a bit for the page to render, then scroll
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }, 100);
+      }
+    }
+  }, [location]);
+
+  return (
+    <>
+      <Navigation />
+      {/* Hero Section */}
+      <ProductHero />
+
+      {/* Featured Products - Alternating Layout */}
+      {featuredProducts.map((product, index) => (
+        <div id={product.id} key={product.id}>
           <FeaturedProduct
-            key={product.name}
             product={product}
-            index={index}
             reversed={index % 2 === 1}
           />
-        ))}
+        </div>
+      ))}
 
-        {/* Other Products Grid */}
-        <ProductGrid
-          products={otherProducts}
-          title="More Herbal Treasures"
-          subtitle="Explore our complete range of nature's finest remedies, each carefully selected for quality and potency."
-        />
-      </div>
-
+      {/* Other Products Grid */}
+      <ProductGrid products={otherProducts} />
+      
       <Footer />
-    </main>
+    </>
   );
 }

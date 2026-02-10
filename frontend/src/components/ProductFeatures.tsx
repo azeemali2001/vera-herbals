@@ -7,46 +7,55 @@ export function ProductFeatures() {
 
   const products = [
     {
+      id: "moringa-leaf-powder", // Added matching ID
       name: "Moringa Leaf Powder",
       benefit: "Rich in vitamins, minerals, and antioxidants",
       image: "moringaLeafPowder.png",
     },
     {
+      id: "curry-leaf-powder", // Added matching ID
       name: "Curry Leaf Powder",
       benefit: "Supports digestion and hair health",
       image: "curryLeafPowder.png",
     },
     {
+      id: "neem-leaf-powder", // Added matching ID
       name: "Neem Leaf Powder",
       benefit: "Natural detoxifier and skin health support",
       image: "neemLeafPowder.png",
     },
     {
+      id: "tulsi-leaf-powder", // Added matching ID
       name: "Tulsi Leaf Powder",
       benefit: "Stress relief and immune boosting",
       image: "tulsiLeafPowder.png",
     },
     {
+      id: "amla-powder", // Added matching ID
       name: "Amla Powder",
       benefit: "Vitamin C powerhouse for immunity",
       image: "amlaPowder.png",
     },
     {
+      id: "papaya-leaf-powder", // Added matching ID
       name: "Papaya Leaf Powder",
       benefit: "Digestive enzymes and liver support",
       image: "papayaLeafPowder.png",
     },
     {
+      id: "turmeric-powder", // Added matching ID
       name: "Turmeric Powder",
       benefit: "Anti-inflammatory and joint health",
       image: "turmericPowder.png",
     },
     {
+      id: "banana-powder", // Added matching ID
       name: "Banana Powder",
       benefit: "Natural energy and electrolyte balance",
       image: "bananaPowder.png",
     },
     {
+      id: "hibiscus-powder", // Added matching ID
       name: "Hibiscus Powder",
       benefit: "Heart health and natural energy boost",
       image: "hibiscusPowder.png",
@@ -57,69 +66,67 @@ export function ProductFeatures() {
   const visibleProducts = showAll ? products : products.slice(0, 3);
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gradient-to-b from-white to-[#F5F8F2]">
+      <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16 space-y-4"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl text-[#2D5016]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Our{" "}
-            <span className="bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] bg-clip-text text-transparent">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E]">
               Organic Products
             </span>
           </h2>
-          <p className="text-lg text-[#4A7C2C]/80">
-            Discover natural organic powders, carefully sourced and processed for
-            your total wellbeing
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Discover natural organic powders, carefully sourced and processed for your total wellbeing
           </p>
         </motion.div>
 
         {/* Products Grid */}
-        {/* 'layout' prop ensures smooth animation when grid height changes */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+        >
+          <AnimatePresence>
             {visibleProducts.map((product, index) => (
               <motion.div
+                key={product.id}
                 layout
-                key={product.name} // Use unique ID/name for key
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="group relative h-full"
+                transition={{ duration: 0.3, delay: index * 0.05 }}
               >
-                {/* Wrap card in Link to redirect on click */}
-                <Link to="/products" className="block h-full">
-                  <div className="relative bg-white rounded-3xl p-6 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#6B9D3E]/10 overflow-hidden cursor-pointer hover:-translate-y-1">
-                    {/* Product Image */}
-                    <div className="w-full h-48 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl mb-4 overflow-hidden">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-semibold text-[#2D5016]">
-                        {product.name}
-                      </h3>
-                      <p className="text-[#4A7C2C]/70 leading-relaxed">
-                        {product.benefit}
-                      </p>
-                    </div>
-
-                    {/* Decorative corner */}
-                    <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#6B9D3E]/5 to-transparent rounded-bl-full group-hover:from-[#6B9D3E]/10 transition-colors" />
+                {/* Wrap card in Link to redirect on click with hash */}
+                <Link
+                  to={`/products#${product.id}`}
+                  className="group block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative"
+                >
+                  {/* Product Image */}
+                  <div className="aspect-square overflow-hidden bg-gradient-to-br from-[#F5F8F2] to-white">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 group-hover:text-[#4A7C2C] transition-colors">
+                      {product.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {product.benefit}
+                    </p>
+                  </div>
+
+                  {/* Decorative corner */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#4A7C2C]/10 to-transparent rounded-bl-full" />
                 </Link>
               </motion.div>
             ))}
@@ -127,21 +134,16 @@ export function ProductFeatures() {
         </motion.div>
 
         {/* Bottom CTA / Toggle Button */}
-        <motion.div
-          layout
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-center mt-16"
-        >
-          <button
+        <div className="text-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setShowAll(!showAll)}
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#4A7C2C] to-[#6B9D3E] text-white font-medium rounded-full hover:shadow-lg hover:scale-105 active:scale-95 transition-all"
           >
             {showAll ? "Show Less Products" : "View All Products"}
-          </button>
-        </motion.div>
+          </motion.button>
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { ScrollToTop } from './components/ScrollToTop';
+import { WhatsAppFloat } from './components/WhatsappFloat';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import AboutUs from './pages/AboutUs';
@@ -11,6 +12,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <WhatsAppFloat />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
