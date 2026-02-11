@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Leaf, Sparkles, Heart, ChevronLeft, ChevronRight } from "lucide-react";
+import { Leaf, Sparkles, Heart } from "lucide-react";
 import { useState } from "react";
 import { cn } from "../../lib/utils";
 
@@ -31,14 +31,6 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
 
   // Normalize images to always be an array
   const allImages = product.image;
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -72,7 +64,7 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
           )}
         >
 
-          {/* Image Section with Carousel */}
+          {/* Image Section with Vertical Thumbnail Carousel */}
           <motion.div
             variants={itemVariants}
             className={cn(
@@ -80,92 +72,90 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
               reversed && "lg:col-start-2"
             )}
           >
-            <div className="relative aspect-square max-w-lg mx-auto">
-              {/* Decorative background layers with subtle animation*/}
-              <motion.div 
-                className="absolute inset-6 rounded-[2.5rem] bg-sage-light"
-                animate={{ 
-                  rotate: [2, -2, 2],
-                  scale: [1, 1.02, 1]
-                }}
-                transition={{ 
-                  duration: 8, 
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-              
-              {/* Main carousel container */}
-              {/* UPDATED: Changed background to be slightly darker than bg-sage-light using brightness filter */}
-              <div className="relative h-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-sage-light brightness-[0.95] backdrop-blur-sm border border-sage/20">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={currentImageIndex}
-                    src={allImages[currentImageIndex]}
-                    alt={`${product.name} ${currentImageIndex + 1}`}
-                    initial={{ opacity: 0, x: 100, scale: 0.9 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: -100, scale: 0.9 }}
-                    transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
-                    className="w-full h-full object-contain p-8 lg:p-12"
-                  />
-                </AnimatePresence>
-
-                {/* Elegant gradient overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-orange-900/5 via-transparent to-transparent pointer-events-none" />
-
-                {/* Carousel Controls - Always visible with elegant design */}
+            <div className="relative max-w-lg mx-auto">
+              <div className="flex gap-4">
+                {/* Vertical Thumbnail Column */}
                 {allImages.length > 1 && (
-                  <>
-                    <motion.button
-                      onClick={prevImage}
-                      whileHover={{ scale: 1.1, x: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 backdrop-blur-md text-earth shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-200/30 z-10"
-                    >
-                      <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
-                    </motion.button>
-                    <motion.button
-                      onClick={nextImage}
-                      whileHover={{ scale: 1.1, x: 2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 backdrop-blur-md text-earth shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-200/30 z-10"
-                    >
-                      <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
-                    </motion.button>
-                    
-                    {/* Enhanced dot indicators */}
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2  backdrop-blur-md px-4 py-2.5 rounded-full shadow-lg border border-orange-200/30 z-10">
-                      {allImages.map((_, i) => (
-                        <motion.button
-                          key={i}
-                          onClick={() => setCurrentImageIndex(i)}
-                          whileHover={{ scale: 1.2 }}
-                          whileTap={{ scale: 0.9 }}
-                          className={cn(
-                            "rounded-full transition-all duration-300",
-                            currentImageIndex === i 
-                              ? "bg-sage w-8 h-2.5" 
-                              : "bg-sage/25 w-2.5 h-2.5 hover:bg-sage/40"
-                          )}
-                          aria-label={`View image ${i + 1}`}
+                  <div className="flex flex-col gap-3 w-24">
+                    {allImages.map((img, i) => (
+                      <motion.button
+                        key={i}
+                        onClick={() => setCurrentImageIndex(i)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={cn(
+                          "relative aspect-square rounded-xl overflow-hidden border-2 transition-all duration-300",
+                          currentImageIndex === i 
+                            ? "border-sage shadow-lg" 
+                            : "border-border/40 hover:border-sage/40 opacity-70 hover:opacity-100"
+                        )}
+                      >
+                        <img
+                          src={img}
+                          alt={`${product.name} thumbnail ${i + 1}`}
+                          className="w-full h-full object-cover"
                         />
-                      ))}
-                    </div>
-
-                    {/* Image counter */}
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md border border-orange-200/30 z-10">
-                      <span className="text-xs font-medium text-earth">
-                        {currentImageIndex + 1} / {allImages.length}
-                      </span>
-                    </div>
-                  </>
+                        {currentImageIndex === i && (
+                          <motion.div
+                            layoutId="thumbnail-indicator"
+                            className="absolute inset-0 border-2 border-sage rounded-xl"
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          />
+                        )}
+                      </motion.button>
+                    ))}
+                  </div>
                 )}
-              </div>
 
-              {/* Original badge style maintained */}
-              <div className="absolute -bottom-4 -right-4 lg:-right-8 bg-sage text-primary-foreground px-6 py-3 rounded-2xl shadow-card z-20">
-                <span className="text-sm font-medium">100% Natural</span>
+                {/* Main Image Display */}
+                <div className="flex-1 relative aspect-square">
+                  {/* Decorative background layers with subtle animation*/}
+                  <motion.div 
+                    className="absolute inset-6 rounded-[2.5rem] bg-sage-light"
+                    animate={{ 
+                      rotate: [2, -2, 2],
+                      scale: [1, 1.02, 1]
+                    }}
+                    transition={{ 
+                      duration: 8, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  
+                  {/* Main image container */}
+                  <div className="relative h-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-sage-light brightness-[0.95] backdrop-blur-sm border border-sage/20">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={currentImageIndex}
+                        src={allImages[currentImageIndex]}
+                        alt={`${product.name} ${currentImageIndex + 1}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+                        className="w-full h-full object-contain p-8 lg:p-12"
+                      />
+                    </AnimatePresence>
+
+                    {/* Elegant gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-orange-900/5 via-transparent to-transparent pointer-events-none" />
+
+                    {/* Image counter badge (only show if multiple images) */}
+                    {allImages.length > 1 && (
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md border border-orange-200/30 z-10">
+                        <span className="text-xs font-medium text-earth">
+                          {currentImageIndex + 1} / {allImages.length}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Original badge style maintained */}
+                  {/* <div className="absolute -bottom-4 -right-4 lg:-right-8 bg-sage text-primary-foreground px-6 py-3 rounded-2xl shadow-card z-20">
+                    <span className="text-sm font-medium">100% Natural</span>
+                  </div> */}
+                </div>
               </div>
             </div>
           </motion.div>
