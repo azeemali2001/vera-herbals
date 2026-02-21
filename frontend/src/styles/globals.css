@@ -346,3 +346,31 @@ html {
   background: transparent;
 }
 
+
+:root {
+  --header-height: 76px;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: hsl(var(--background));
+}
+
+.app-content {
+  padding-top: var(--header-height);
+}
+
+.app-container {
+  width: min(1200px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.section-block {
+  padding-block: clamp(2rem, 4vw, 4.5rem);
+}
+
+.page-hero {
+  text-align: center;
+  padding-top: clamp(0.5rem, 1.5vw, 1rem);
+  padding-bottom: clamp(1.25rem, 3vw, 2rem);
+}

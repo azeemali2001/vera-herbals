@@ -42,7 +42,7 @@ export function AboutSection() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1591104955069-1634dd952a90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwZmFybSUyMHN1c3RhaW5hYmlsaXR5fGVufDF8fHx8MTc2NzQ3NzcwOXww&ixlib=rb-4.1.0&q=80&w=1080"
+                src="ai/about-hero.svg"
                 alt="Sustainable Moringa Farming"
                 className="w-full h-[600px] object-cover"
               />

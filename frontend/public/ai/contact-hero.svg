@@ -1,0 +1,10 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="700" fill="#F5FAF1"/>
+<rect x="70" y="70" width="1060" height="560" rx="36" fill="url(#g1)"/>
+<rect x="180" y="220" width="350" height="260" rx="28" fill="white"/>
+<path d="M180 260L355 380L530 260" stroke="#6B9D3E" stroke-width="14"/>
+<circle cx="830" cy="350" r="150" fill="#4A7C2C"/>
+<circle cx="830" cy="350" r="90" fill="#E6F2D9"/>
+<text x="170" y="160" fill="#1F3810" font-size="46" font-family="Arial" font-weight="700">Let's Talk Wellness</text>
+<defs><linearGradient id="g1" x1="70" y1="70" x2="1130" y2="630" gradientUnits="userSpaceOnUse"><stop stop-color="#EEF7E6"/><stop offset="1" stop-color="#DFEFD0"/></linearGradient></defs>
+</svg>

@@ -1,0 +1,11 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1600" height="900" fill="#F8FBF4"/>
+<rect x="120" y="120" width="1360" height="660" rx="40" fill="url(#g1)"/>
+<circle cx="400" cy="300" r="160" fill="#E4F1D6"/>
+<circle cx="1240" cy="620" r="160" fill="#D7E9C4"/>
+<rect x="620" y="240" width="360" height="420" rx="30" fill="white" stroke="#D1E3BF" stroke-width="8"/>
+<path d="M720 460L790 530L890 390" stroke="#4A7C2C" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="220" y="320" fill="#1F3810" font-size="64" font-family="Arial" font-weight="700">Cancellation &amp; Refund</text>
+<text x="220" y="388" fill="#2D5016" font-size="30" font-family="Arial">Transparent return and refund process</text>
+<defs><linearGradient id="g1" x1="120" y1="120" x2="1480" y2="780" gradientUnits="userSpaceOnUse"><stop stop-color="#EEF6E6"/><stop offset="1" stop-color="#DFEED1"/></linearGradient></defs>
+</svg>
