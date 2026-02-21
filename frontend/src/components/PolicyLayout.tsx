@@ -14,7 +14,7 @@ export function PolicyLayout({ title, description, heroImage, children }: Policy
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-[#F1F8F4]">
       {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      <div className="relative h-[40vh] sm:h-[45vh] md:h-[50vh] min-h-[300px] sm:min-h-[350px] md:min-h-[400px] overflow-hidden">
         {/* Hero Image with Overlay */}
         <div className="absolute inset-0">
           <img
@@ -27,12 +27,12 @@ export function PolicyLayout({ title, description, heroImage, children }: Policy
 
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 right-20 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 left-20 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse delay-700" />
+          <div className="absolute top-10 right-10 sm:top-20 sm:right-20 w-36 h-36 sm:w-72 sm:h-72 bg-white/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-40 h-40 sm:w-96 sm:h-96 bg-white/10 rounded-full blur-3xl animate-pulse delay-700" />
         </div>
 
         {/* Content */}
-        <div className="relative h-full app-container flex flex-col justify-center items-center text-center px-4">
+        <div className="relative h-full app-container flex flex-col justify-center items-center text-center px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -41,15 +41,15 @@ export function PolicyLayout({ title, description, heroImage, children }: Policy
           >
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 group"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-4 sm:mb-6 group text-sm sm:text-base"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               Back to Home
             </Link>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               {title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed">
               {description}
             </p>
           </motion.div>
@@ -76,16 +76,16 @@ export function PolicyLayout({ title, description, heroImage, children }: Policy
       </div>
 
       {/* Content Section */}
-      <div className="relative">
-        <div className="app-container py-16 md:py-24">
+      <div className="relative bg-white">
+        <div className="app-container py-8 sm:py-12 md:py-16 lg:py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="max-w-5xl mx-auto"
+            className="max-w-5xl mx-auto px-4 sm:px-6"
           >
-            <div className="bg-white rounded-3xl shadow-2xl shadow-[#2E7D32]/10 overflow-hidden">
-              <div className="p-8 md:p-12 lg:p-16">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-2xl sm:shadow-[#2E7D32]/10 overflow-hidden border border-gray-200">
+              <div className="p-4 sm:p-6 md:p-8 lg:p-12 lg:p-16">
                 {children}
               </div>
             </div>

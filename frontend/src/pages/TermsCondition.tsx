@@ -73,8 +73,8 @@ export function TermsConditions() {
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{section.title}</h2>
               </div>
             </div>
-            <div className="p-6 md:p-8">
-              <p className="text-gray-700 leading-relaxed text-lg">{section.content}</p>
+            <div className="p-4 md:p-6 lg:p-8">
+              <p className="text-gray-700 leading-relaxed text-base md:text-lg">{section.content}</p>
             </div>
           </motion.div>
         ))}
@@ -87,12 +87,12 @@ export function TermsConditions() {
         viewport={{ once: true }}
         className="mb-16"
       >
-        <div className="flex items-center gap-3 mb-8">
-          <div className="w-1 h-12 bg-gradient-to-b from-[#2E7D32] to-[#1F5620] rounded-full" />
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Usage Rights & Restrictions</h2>
+        <div className="flex items-start md:items-center gap-2 md:gap-3 mb-8">
+          <div className="w-1 h-10 md:h-12 bg-gradient-to-b from-[#2E7D32] to-[#1F5620] rounded-full flex-shrink-0" />
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Usage Rights & Restrictions</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {usageRights.map((right, index) => (
             <motion.div
               key={index}
@@ -100,29 +100,29 @@ export function TermsConditions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              className="bg-gradient-to-br from-white to-[#F1F8F4] p-6 rounded-xl border-2 border-[#2E7D32]/10 hover:border-[#2E7D32]/30 transition-all"
+              className="bg-gradient-to-br from-white to-[#F1F8F4] p-4 md:p-6 rounded-xl border-2 border-[#2E7D32]/10 hover:border-[#2E7D32]/30 transition-all"
             >
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-[#2E7D32] flex items-center justify-center flex-shrink-0 mt-1">
                   <div className="w-2 h-2 rounded-full bg-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-[#2E7D32] mb-2">{right.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{right.desc}</p>
+                  <h3 className="font-bold text-base md:text-lg text-[#2E7D32] mb-2">{right.title}</h3>
+                  <p className="text-gray-700 leading-relaxed text-sm md:text-base">{right.desc}</p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-8 bg-gradient-to-br from-[#2E7D32] to-[#1F5620] p-8 rounded-2xl text-white">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-              <Copyright className="w-6 h-6 text-white" />
+        <div className="mt-6 md:mt-8 bg-gradient-to-br from-[#2E7D32] to-[#1F5620] p-6 md:p-8 rounded-2xl text-white">
+          <div className="flex items-start gap-3 md:gap-4">
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+              <Copyright className="w-5 h-5 md:w-6 md:h-6 text-white" />
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-3">Intellectual Property Rights</h3>
-              <p className="text-white/90 leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-bold mb-3">Intellectual Property Rights</h3>
+              <p className="text-white/90 leading-relaxed text-sm md:text-base">
                 Globalveridian reserves complete title and full intellectual property rights in any Content you 
                 download from the Site. Unauthorized use may result in legal action.
               </p>
@@ -139,20 +139,20 @@ export function TermsConditions() {
         className="mb-16"
       >
         <div className="bg-white rounded-2xl border-2 border-[#2E7D32]/10 overflow-hidden shadow-lg">
-          <div className="bg-gradient-to-r from-[#F1F8F4] to-white p-6 border-b-2 border-[#2E7D32]/10">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
-                <Link2 className="w-6 h-6 text-white" />
+          <div className="bg-gradient-to-r from-[#F1F8F4] to-white p-4 md:p-6 border-b-2 border-[#2E7D32]/10">
+            <div className="flex items-start md:items-center gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                <Link2 className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Links to Third Party Sites</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Links to Third Party Sites</h2>
             </div>
           </div>
-          <div className="p-8">
-            <p className="text-gray-700 leading-relaxed mb-4">
+          <div className="p-4 md:p-6 lg:p-8">
+            <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-4">
               This Site may contain links to Sites owned or operated by third parties. Such links are provided 
               for your reference only and we do not control such Sites and we are not responsible for their content.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed text-sm md:text-base">
               We reserve the right to terminate a link to a third party Site at any time and the fact that we 
               provide a Link does not mean that we endorse, authorize or sponsor that Site.
             </p>
@@ -167,15 +167,15 @@ export function TermsConditions() {
         viewport={{ once: true }}
         className="mb-16"
       >
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-br from-[#F1F8F4] to-white p-8 rounded-2xl border-2 border-[#2E7D32]/10">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0">
-                <Mail className="w-6 h-6 text-white" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className="bg-gradient-to-br from-[#F1F8F4] to-white p-4 md:p-6 lg:p-8 rounded-2xl border-2 border-[#2E7D32]/10">
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+                <Mail className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Promotional Communications</h3>
-                <p className="text-gray-700 leading-relaxed">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">Promotional Communications</h3>
+                <p className="text-gray-700 leading-relaxed text-sm md:text-base">
                   We will be sending promotional SMS and emails to our customers to keep you informed about our 
                   latest products and offers.
                 </p>
@@ -183,14 +183,14 @@ export function TermsConditions() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-white to-[#F1F8F4] p-8 rounded-2xl border-2 border-[#2E7D32]/10">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center flex-shrink-0">
-                <AlertCircle className="w-6 h-6 text-white" />
+          <div className="bg-gradient-to-br from-white to-[#F1F8F4] p-4 md:p-6 lg:p-8 rounded-2xl border-2 border-[#2E7D32]/10">
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center flex-shrink-0">
+                <AlertCircle className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Transaction Charges</h3>
-                <p className="text-gray-700 leading-relaxed">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">Transaction Charges</h3>
+                <p className="text-gray-700 leading-relaxed text-sm md:text-base">
                   Transaction charges are applicable for prepaid orders if the order is cancelled. Courier charges 
                   are applicable for returning the product.
                 </p>
@@ -208,21 +208,21 @@ export function TermsConditions() {
         className="mb-16"
       >
         <div className="bg-white rounded-2xl border-2 border-[#2E7D32]/10 overflow-hidden shadow-lg">
-          <div className="bg-gradient-to-r from-[#F1F8F4] to-white p-6 border-b-2 border-[#2E7D32]/10">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center flex-shrink-0">
-                <MessageCircle className="w-6 h-6 text-white" />
+          <div className="bg-gradient-to-r from-[#F1F8F4] to-white p-4 md:p-6 border-b-2 border-[#2E7D32]/10">
+            <div className="flex items-start md:items-center gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Comments & Feedback</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Comments & Feedback</h2>
             </div>
           </div>
-          <div className="p-8">
-            <p className="text-gray-700 leading-relaxed mb-4">
+          <div className="p-4 md:p-6 lg:p-8">
+            <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-4">
               We welcome your comments, notes, messages, ideas, feedback, suggestions or other communications 
               (collectively, "Comments") concerning the Site, which shall be and remain the exclusive property 
               of Globalveridian.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed text-sm md:text-base">
               Your submission of any such Comments shall constitute an assignment to Globalveridian of all worldwide 
               rights, titles and interests in all copyrights and other intellectual property rights in the Comments. 
               Globalveridian will be entitled to use, reproduce, disclose, publish and distribute any material you 
@@ -240,21 +240,21 @@ export function TermsConditions() {
         viewport={{ once: true }}
         className="mb-8"
       >
-        <div className="bg-gradient-to-br from-[#2E7D32] to-[#1F5620] p-10 rounded-3xl text-white shadow-2xl">
-          <div className="flex items-start gap-6">
-            <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0 shadow-xl">
-              <Scale className="w-8 h-8 text-white" />
+        <div className="bg-gradient-to-br from-[#2E7D32] to-[#1F5620] p-6 md:p-10 rounded-3xl text-white shadow-2xl">
+          <div className="flex items-start gap-4 md:gap-6">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0 shadow-xl">
+              <Scale className="w-6 h-6 md:w-8 md:h-8 text-white" />
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Governing Law</h2>
-              <p className="text-white/90 leading-relaxed text-lg mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Governing Law</h2>
+              <p className="text-white/90 leading-relaxed text-base md:text-lg mb-6">
                 These Terms of Service and any separate agreements whereby we provide you Services shall be governed 
                 by and construed in accordance with the laws of India.
               </p>
-              <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-                <div className="flex items-start gap-3">
-                  <Globe className="w-6 h-6 text-white flex-shrink-0 mt-1" />
-                  <p className="text-white/95 leading-relaxed">
+              <div className="bg-white/10 p-4 md:p-6 rounded-xl backdrop-blur-sm">
+                <div className="flex items-start gap-2 md:gap-3">
+                  <Globe className="w-5 h-5 md:w-6 md:h-6 text-white flex-shrink-0 mt-1" />
+                  <p className="text-white/95 leading-relaxed text-sm md:text-base">
                     Any disputes arising shall be subject to the exclusive jurisdiction of the courts located in 
                     <strong className="text-white"> Thane, Maharashtra, India</strong>.
                   </p>
@@ -270,24 +270,24 @@ export function TermsConditions() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-gradient-to-br from-[#F1F8F4] to-white p-8 rounded-2xl border-2 border-[#2E7D32]/20 text-center"
+        className="bg-gradient-to-br from-[#F1F8F4] to-white p-6 md:p-8 rounded-2xl border-2 border-[#2E7D32]/20 text-center"
       >
-        <h3 className="text-2xl font-bold text-gray-900 mb-3">Questions About Our Terms?</h3>
-        <p className="text-gray-700 mb-6 leading-relaxed max-w-2xl mx-auto">
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Questions About Our Terms?</h3>
+        <p className="text-gray-700 mb-6 leading-relaxed max-w-2xl mx-auto text-sm md:text-base">
           If you have any questions or concerns about our Terms and Conditions, please don't hesitate to reach out to us.
         </p>
         <a
           href="mailto:connect@globalveridian.com"
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2E7D32] to-[#1F5620] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2E7D32]/30 transition-all hover:scale-105"
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2E7D32] to-[#1F5620] text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2E7D32]/30 transition-all hover:scale-105"
         >
-          <Mail className="w-5 h-5" />
+          <Mail className="w-4 h-4 md:w-5 md:h-5" />
           Contact Us
         </a>
       </motion.div>
 
       {/* Last Updated */}
-      <div className="text-center pt-8 mt-8 border-t-2 border-[#2E7D32]/10">
-        <p className="text-gray-600">
+      <div className="text-center pt-6 md:pt-8 mt-6 md:mt-8 border-t-2 border-[#2E7D32]/10">
+        <p className="text-gray-600 text-sm md:text-base">
           Last Updated: <span className="font-semibold text-[#2E7D32]">February 21, 2026</span>
         </p>
       </div>
