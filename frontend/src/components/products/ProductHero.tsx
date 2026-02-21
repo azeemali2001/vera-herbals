@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function ProductHero() {
   return (
-    <section className="relative overflow-hidden gradient-hero py-24 lg:py-32">
+    <section className="relative overflow-hidden gradient-hero py-10 lg:py-14">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/4 w-[600px] h-[600px] rounded-full bg-sage-light opacity-40 blur-3xl" />
@@ -17,11 +17,11 @@ export function ProductHero() {
           className="max-w-3xl mx-auto text-center"
         >
           <span className="section-heading mb-6 block">Pure & Natural</span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium text-earth leading-tight mb-6 text-balance">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-earth leading-tight mb-4 text-balance">
             Nature's Finest
             <span className="block text-sage italic">Herbal Wellness</span>
           </h1>
-          <p className="text-lg lg:text-xl text-earth-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base lg:text-lg text-earth-light leading-relaxed max-w-2xl mx-auto">
             Discover our curated collection of premium organic herbal powders, 
             thoughtfully sourced and carefully processed to preserve nature's wisdom.
           </p>
@@ -31,7 +31,7 @@ export function ProductHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="flex justify-center gap-8 mt-12"
+          className="flex justify-center gap-6 mt-8"
         >
           <div className="text-center">
             <span className="block text-3xl font-serif text-sage font-medium">8+</span>

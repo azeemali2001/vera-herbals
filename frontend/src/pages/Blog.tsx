@@ -41,15 +41,16 @@ const blogPosts = [
 
 export default function Blog() {
   return (
-    <section className="section-block">
+    <section className="section-block !pt-4 lg:!pt-6 !pb-8 lg:!pb-10">
       <PageHeader
         eyebrow="Insights"
         title="Wellness Blog"
         description="Discover insights into Ayurvedic wisdom, herbal benefits, and natural wellness practices to support your journey toward optimal health."
+        compact
       />
 
-      <div className="app-container pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="app-container pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((post, index) => (
             <article key={index} className="rounded-2xl border border-[#dbe5d1] bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card">
               <div className="mb-4 flex h-44 w-full items-center justify-center rounded-xl bg-gradient-to-br from-green-100 to-green-200">

@@ -6,7 +6,8 @@ interface AboutSection {
   bullets: string[];
 }
 
-interface Product {
+export interface Product {
+  id: string;
   name: string;
   image: string[];
   about: AboutSection[];
@@ -19,33 +20,38 @@ interface ProductGridProps {
   products: Product[];
   title: string;
   subtitle: string;
+  onProductClick?: (product: Product) => void;
 }
 
-export function ProductGrid({ products, title, subtitle }: ProductGridProps) {
+export function ProductGrid({ products, title, subtitle, onProductClick }: ProductGridProps) {
   return (
-    <section className="py-20 lg:py-28 bg-cream">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="pt-4 pb-6 lg:pt-8 lg:pb-12 bg-gradient-to-b from-background to-cream/60 -mx-4 px-4 sm:mx-0 sm:px-0">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center max-w-2xl mx-auto mb-8 lg:mb-10"
         >
-          <span className="section-heading mb-4 block">Complete Collection</span>
-          <h2 className="text-3xl lg:text-4xl font-serif font-medium text-earth mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-medium text-earth mb-3 tracking-tight">
             {title}
           </h2>
-          <p className="text-earth-light text-lg leading-relaxed">
+          <p className="text-earth-light text-sm sm:text-base leading-relaxed">
             {subtitle}
           </p>
         </motion.div>
 
-        {/* Products Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+        {/* Equal grid - all products same size */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {products.map((product, index) => (
-            <ProductCard key={product.name} product={product} index={index} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              index={index}
+              onClick={onProductClick ? () => onProductClick(product) : undefined}
+            />
           ))}
         </div>
       </div>

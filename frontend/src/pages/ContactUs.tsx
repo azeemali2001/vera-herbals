@@ -66,15 +66,16 @@ export default function ContactUs() {
   };
 
   return (
-    <section className="section-block">
+    <section className="section-block !pt-4 lg:!pt-6 !pb-8 lg:!pb-10">
       <PageHeader
         eyebrow="Let’s connect"
         title="Contact Us"
         description="Get in touch with us for product inquiries, bulk orders, and partnership opportunities. We’re here to support your wellness journey with fast and reliable assistance."
+        compact
       />
 
-      <div className="app-container pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+      <div className="app-container pb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
           <aside className="lg:col-span-2 rounded-2xl border border-[#dbe5d1] bg-[#f8fbf3] p-7 shadow-soft">
             <h2 className="text-2xl font-semibold text-earth mb-3">Contact Information</h2>
             <p className="text-earth-light leading-relaxed mb-8">

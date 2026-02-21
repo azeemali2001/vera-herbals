@@ -21,11 +21,12 @@ interface FeaturedProductProps {
   product: Product;
   index: number;
   reversed?: boolean;
+  compact?: boolean;
 }
 
 const icons = [Leaf, Sparkles, Heart];
 
-export function FeaturedProduct({ product, index, reversed = false }: FeaturedProductProps) {
+export function FeaturedProduct({ product, index, reversed = false, compact = false }: FeaturedProductProps) {
   const [expandedSection, setExpandedSection] = useState<number | null>(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -49,18 +50,19 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
 
   return (
     <section className={cn(
-      "py-12 lg:py-16",
-      index % 2 === 0 ? "bg-background" : "bg-cream"
+      compact ? "py-0" : "py-12 lg:py-16",
+      !compact && (index % 2 === 0 ? "bg-background" : "bg-cream")
     )}>
-      <div className="container mx-auto px-6 lg:px-8">
+      <div className={cn("mx-auto", compact ? "px-0" : "container px-6 lg:px-8")}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: compact ? "0px" : "-100px" }}
           className={cn(
-            "grid lg:grid-cols-2 gap-12 lg:gap-20 items-center",
-            reversed && "lg:grid-flow-dense"
+            "grid items-start",
+            compact ? "grid-cols-1 gap-6" : "lg:grid-cols-2 gap-12 lg:gap-20 lg:items-center",
+            !compact && reversed && "lg:grid-flow-dense"
           )}
         >
 
@@ -69,14 +71,14 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
             variants={itemVariants}
             className={cn(
               "relative",
-              reversed && "lg:col-start-2"
+              !compact && reversed && "lg:col-start-2"
             )}
           >
             <div className="relative w-full">
-              <div className="flex gap-4">
+              <div className={cn("flex", compact ? "gap-3" : "gap-4")}>
                 {/* Vertical Thumbnail Column */}
                 {allImages.length > 1 && (
-                  <div className="flex flex-col gap-3 w-24">
+                  <div className={cn("flex flex-col flex-shrink-0", compact ? "gap-2 w-16" : "gap-3 w-24")}>
                     {allImages.map((img, i) => (
                       <motion.button
                         key={i}
@@ -139,27 +141,33 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
           <motion.div
             variants={itemVariants}
             className={cn(
-              "space-y-8",
-              reversed && "lg:col-start-1 lg:row-start-1"
+              compact ? "space-y-4" : "space-y-8",
+              !compact && reversed && "lg:col-start-1 lg:row-start-1"
             )}
           >
-            <div className="space-y-4">
-              <span className="section-heading">Featured Product</span>
-              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-serif font-medium text-earth leading-tight">
+            <div className={cn(compact ? "space-y-2" : "space-y-4")}>
+              {!compact && <span className="section-heading">Featured Product</span>}
+              <h2 className={cn(
+                "font-serif font-medium text-earth leading-tight",
+                compact ? "text-2xl" : "text-3xl lg:text-4xl xl:text-5xl"
+              )}>
                 {product.name}
               </h2>
-              <p className="text-lg text-earth-light leading-relaxed">
+              <p className={cn("text-earth-light leading-relaxed", compact ? "text-sm" : "text-lg")}>
                 {product.description}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className={cn("flex flex-wrap", compact ? "gap-2" : "gap-3")}>
               {highlightItems.map((highlight, i) => {
                 const Icon = icons[i % icons.length];
                 return (
                   <span
                     key={i}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage-light text-sage text-sm font-medium"
+                    className={cn(
+                      "inline-flex items-center rounded-full bg-sage-light text-sage font-medium",
+                      compact ? "gap-1.5 px-3 py-1.5 text-xs" : "gap-2 px-4 py-2 text-sm"
+                    )}
                   >
                     <Icon className="w-4 h-4" />
                     {highlight}
@@ -168,8 +176,8 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
               })}
             </div>
 
-            <div className="space-y-3">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-earth mb-4">
+            <div className={cn(compact ? "space-y-2" : "space-y-3")}>
+              <h3 className={cn("font-semibold uppercase tracking-wider text-earth", compact ? "text-xs mb-2" : "text-sm mb-4")}>
                 About This Product
               </h3>
               {product.about.map((section, i) => (
@@ -210,11 +218,11 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
               ))}
             </div>
 
-            <div className="p-5 rounded-xl bg-sage-light border border-sage/10">
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-sage mb-2">
+            <div className={cn("rounded-xl bg-sage-light border border-sage/10", compact ? "p-3" : "p-5")}>
+              <h4 className={cn("font-semibold uppercase tracking-wider text-sage", compact ? "text-xs mb-1" : "text-sm mb-2")}>
                 Suggested Usage
               </h4>
-              <p className="text-sm text-earth-light leading-relaxed">
+              <p className={cn("text-earth-light leading-relaxed", compact ? "text-xs" : "text-sm")}>
                 {product.usage}
               </p>
             </div>

@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { PageHeader } from "../components/layout/PageHeader";
 
 const recipeGroups = [
   {
@@ -252,23 +253,19 @@ export default function Recipes() {
   
 
   return (
-    <section className="section-block">
+    <section className="section-block !pt-4 lg:!pt-6 !pb-8 lg:!pb-10">
 
-      {/* HERO */}
-      <section className="pt-28 pb-20 text-center max-w-4xl mx-auto px-6">
-        <h1 className="text-5xl font-bold text-gray-900">
-          Herbal Recipes
-        </h1>
-        <p className="mt-5 text-lg text-gray-600">
-          Thoughtfully curated ways to enjoy our herbal powders — food,
-          drinks, and rituals.
-        </p>
-      </section>
+      <PageHeader
+        eyebrow="In the kitchen"
+        title="Herbal Recipes"
+        description="Thoughtfully curated ways to enjoy our herbal powders — food, drinks, and rituals."
+        compact
+      />
 
       {/* PRODUCT SECTIONS */}
 
 
-      <div className="space-y-36">
+      <div className="space-y-16">
         {recipeGroups.map((group, idx) => {
           return (
             <section
@@ -276,9 +273,9 @@ export default function Recipes() {
               className={`relative bg-gradient-to-br ${group.accent} rounded-3xl shadow-xl mx-2 md:mx-0`}
             >
               <div className="absolute inset-0 opacity-30 blur-2xl pointer-events-none" style={{background: 'radial-gradient(circle at 60% 40%, #fff 0%, transparent 70%)'}}></div>
-              <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
+              <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16 relative z-10">
                 {/* Section Header */}
-                <div className="mb-14 max-w-xl">
+                <div className="mb-8 max-w-xl">
                   <span className="inline-block text-xs uppercase tracking-wider bg-black/70 text-white px-3 py-1 rounded-full mb-4 shadow">
                     Recipes with
                   </span>

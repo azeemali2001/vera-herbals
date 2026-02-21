@@ -3,8 +3,17 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function HeroSection() {
+  const heroBgImage = "https://images.unsplash.com/photo-1723208237358-fa3f4dbb28c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3JpbmdhJTIwcG93ZGVyJTIwbGVhdmVzfGVufDF8fHx8MTc2NzQ3MTQ5MHww&ixlib=rb-4.1.0&q=80&w=1080";
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F5F1E8] via-white to-[#E8F5E9]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-right bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBgImage})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#F5F1E8]/95 via-[#F5F1E8]/80 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#E8F5E9]/90" />
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -133,22 +142,14 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Image */}
+          {/* Right side - background image shows through */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="relative hidden lg:block min-h-[400px]"
+            aria-hidden
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1723208237358-fa3f4dbb28c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3JpbmdhJTIwcG93ZGVyJTIwbGVhdmVzfGVufDF8fHx8MTc2NzQ3MTQ5MHww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Premium Moringa Powder"
-                className="w-full h-auto object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2D5016]/30 to-transparent" />
-            </div>
-            
             {/* Floating quality badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -160,7 +161,7 @@ export function HeroSection() {
                 <img
                   src="logo-no-bg.png"
                   alt="Vera Herbal Wellness Logo Small"
-                  className="w-12 h-12 object-contain rounded-full  bg-[#E6F2D9] border border-[#6B9D3E]/20"
+                  className="w-12 h-12 object-contain rounded-full bg-[#E6F2D9] border border-[#6B9D3E]/20"
                   style={{ maxWidth: 48, maxHeight: 48 }}
                 />
                 <div>

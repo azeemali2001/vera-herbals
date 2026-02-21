@@ -1,7 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FeaturedProduct } from "../components/products/FeaturedProduct";
-// import { ProductGrid } from "../components/products/ProductGrid";
+import { ProductGrid } from "../components/products/ProductGrid";
+import {
+  Sheet,
+  SheetContent,
+} from "../components/ui/sheet";
+import type { Product } from "../components/products/ProductGrid";
 
 const products = [
   {
@@ -197,54 +202,57 @@ const products = [
   }
 ];
 
-// Featured products (first 2) -> Now i (azeem) put all the product as featured
-const featuredProducts = products.slice(0);
-
-// Other products (rest)
-// const otherProducts = products.slice();
-
 export default function Products() {
   const location = useLocation();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   useEffect(() => {
-    // Check if there's a hash in the URL (e.g., #moringa-leaf-powder)
     if (location.hash) {
       const id = location.hash.replace('#', '');
       const element = document.getElementById(id);
-      
-      if (element) {
-        // Wait a bit for the page to render, then scroll
+      const product = products.find((p) => p.id === id);
+      if (product) {
+        setSelectedProduct(product);
+        setSheetOpen(true);
+      } else if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-          });
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 0);
       }
     }
   }, [location]);
 
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+    setSheetOpen(true);
+  };
+
   return (
-    <section className="section-block">
-      {/* Hero Section */}
-      {/* <ProductHero /> */}
+    <section className="section-block !pt-2 lg:!pt-4 !pb-6 lg:!pb-10">
+      {/* Dense Product Grid */}
+      <ProductGrid
+        products={products}
+        title="Our Herbal Collection"
+        subtitle="Premium organic powders for wellness, cooking, and natural beauty."
+        onProductClick={handleProductClick}
+      />
 
-      {/* Featured Products - Alternating Layout */}
-      {featuredProducts.map((product, index) => (
-        <div id={product.id} key={product.id}>
-          <FeaturedProduct
-              key={product.name}
-              product={product}
-              index={index}
-              reversed={index % 2 === 1}
-          />
-        </div>
-      ))}
-
-      {/* Other Products Grid */}
-      {/* <ProductGrid products={otherProducts}           
-            title="More Herbal Treasures"
-            subtitle="Explore our complete range of nature's finest remedies, each carefully selected for quality and potency." /> */}
+      {/* Product Detail Sheet */}
+      <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+        <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto p-0">
+          {selectedProduct && (
+            <div className="p-6">
+              <FeaturedProduct
+                product={selectedProduct}
+                index={0}
+                reversed={false}
+                compact
+              />
+            </div>
+          )}
+        </SheetContent>
+      </Sheet>
     </section>
   );
 }
