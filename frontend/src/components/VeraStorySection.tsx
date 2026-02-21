@@ -70,7 +70,7 @@ export function VeraStorySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="bg-gradient-to-br from-white via-[#F5F1E8]/30 to-white rounded-3xl border-2 border-[#6B9D3E]/20 p-12 md:p-16 shadow-2xl hover:shadow-3xl transition-all mb-16"
+            className="bg-gradient-to-br from-white via-[#F5F1E8]/30 to-white rounded-3xl border-2 border-[#6B9D3E]/20 p-6 md:p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all mb-16"
           >
             <div className="space-y-8">
               {/* Vera Meaning */}
@@ -79,16 +79,16 @@ export function VeraStorySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="flex gap-6 items-start"
+                className="flex flex-col md:flex-row gap-4 md:gap-6 items-start"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Heart className="w-8 h-8 text-white" />
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <Heart className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#2D5016] mb-3">
+                  <h2 className="text-xl md:text-3xl font-bold text-[#2D5016] mb-3">
                     Vera Means Trust & Truth
                   </h2>
-                  <p className="text-lg text-[#4A7C2C]/80 leading-relaxed">
+                  <p className="text-base md:text-lg text-[#4A7C2C]/80 leading-relaxed">
                     At Vera, we believe that the purest nutrition comes from nature which is processed with care. 
                     Every product is a promise of authenticity and wellness.
                   </p>
@@ -103,16 +103,16 @@ export function VeraStorySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="flex gap-6 items-start"
+                className="flex flex-col md:flex-row gap-4 md:gap-6 items-start"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Leaf className="w-8 h-8 text-white" />
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <Leaf className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#2D5016] mb-3">
+                  <h2 className="text-xl md:text-3xl font-bold text-[#2D5016] mb-3">
                     Born from the Konkan
                   </h2>
-                  <p className="text-lg text-[#4A7C2C]/80 leading-relaxed">
+                  <p className="text-base md:text-lg text-[#4A7C2C]/80 leading-relaxed">
                     Based in the fertile Konkan region, Vera was born out of a simple mission to bring the 
                     incredible benefits of nature to the community. We partner with local farmers and sustainable 
                     sources to ensure quality from the ground up.
@@ -128,16 +128,16 @@ export function VeraStorySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.5 }}
-                className="flex gap-6 items-start"
+                className="flex flex-col md:flex-row gap-4 md:gap-6 items-start"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Sprout className="w-8 h-8 text-white" />
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <Sprout className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#2D5016] mb-3">
+                  <h2 className="text-xl md:text-3xl font-bold text-[#2D5016] mb-3">
                     Small Batch, Superior Quality
                   </h2>
-                  <p className="text-lg text-[#4A7C2C]/80 leading-relaxed">
+                  <p className="text-base md:text-lg text-[#4A7C2C]/80 leading-relaxed">
                     We prepare and pack our products in small batches to ensure superior quality, freshness, 
                     and complete traceability. This careful approach means you can trust exactly where your 
                     wellness comes from and how it was made.
