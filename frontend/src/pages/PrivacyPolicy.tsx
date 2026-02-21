@@ -161,42 +161,46 @@ export function PrivacyPolicy() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-[#2E7D32] to-[#1F5620] p-8 rounded-2xl text-white"
+          className="bg-white rounded-2xl border-2 border-[#2E7D32] overflow-hidden"
         >
-          <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-              <Scale className="w-7 h-7 text-white" />
+          <div className="bg-gradient-to-r from-[#F1F8F4] to-white p-6 border-b-2 border-[#2E7D32]">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2E7D32] to-[#1F5620] flex items-center justify-center flex-shrink-0">
+                <Scale className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900">Governing Law</h2>
             </div>
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Governing Law</h2>
-              <p className="text-white/90 leading-relaxed mb-4">
-                These Terms of Service and any separate agreements whereby we provide you services shall be 
-                governed by and construed in accordance with the laws of India. Any disputes shall be subject 
-                to the exclusive jurisdiction of the courts in <strong>Thane, Maharashtra, India</strong>.
-              </p>
-            </div>
+          </div>
+          <div className="p-6">
+            <p className="text-gray-700 leading-relaxed">
+              These Terms of Service and any separate agreements whereby we provide you services shall be 
+              governed by and construed in accordance with the laws of India. Any disputes shall be subject 
+              to the exclusive jurisdiction of the courts in <strong className="text-[#2E7D32]">Thane, Maharashtra, India</strong>.
+            </p>
           </div>
         </motion.section>
 
-        {/* Changes Notice */}
+        {/* Changes to Terms of Service */}
         <motion.section
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-amber-50 to-white p-8 rounded-2xl border-2 border-amber-200"
+          className="bg-white rounded-2xl border-2 border-amber-200 overflow-hidden"
         >
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center flex-shrink-0">
-              <FileText className="w-6 h-6 text-white" />
+          <div className="bg-gradient-to-r from-amber-50 to-white p-6 border-b-2 border-amber-200">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center flex-shrink-0">
+                <FileText className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900">Changes to Terms of Service</h2>
             </div>
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Changes to Terms of Service</h3>
-              <p className="text-gray-700 leading-relaxed">
-                We reserve the right to update or change our Terms at any time without prior notice. It is your 
-                responsibility to check this page periodically for changes. Your continued use of the site following 
-                the posting of changes constitutes your acceptance of those changes.
-              </p>
-            </div>
+          </div>
+          <div className="p-6">
+            <p className="text-gray-700 leading-relaxed">
+              We reserve the right to update or change our Terms at any time without prior notice. It is your 
+              responsibility to check this page periodically for changes. Your continued use of the site following 
+              the posting of changes constitutes your acceptance of those changes.
+            </p>
           </div>
         </motion.section>
 

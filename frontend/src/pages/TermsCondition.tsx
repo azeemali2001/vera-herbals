@@ -115,20 +115,7 @@ export function TermsConditions() {
           ))}
         </div>
 
-        <div className="mt-6 md:mt-8 bg-gradient-to-br from-[#2E7D32] to-[#1F5620] p-6 md:p-8 rounded-2xl text-white">
-          <div className="flex items-start gap-3 md:gap-4">
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-              <Copyright className="w-5 h-5 md:w-6 md:h-6 text-white" />
-            </div>
-            <div>
-              <h3 className="text-xl md:text-2xl font-bold mb-3">Intellectual Property Rights</h3>
-              <p className="text-white/90 leading-relaxed text-sm md:text-base">
-                Globalveridian reserves complete title and full intellectual property rights in any Content you 
-                download from the Site. Unauthorized use may result in legal action.
-              </p>
-            </div>
-          </div>
-        </div>
+
       </motion.section>
 
       {/* Third Party Links */}
@@ -235,32 +222,59 @@ export function TermsConditions() {
 
       {/* Governing Law */}
       <motion.section
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="mb-8"
+        className="mb-16"
       >
-        <div className="bg-gradient-to-br from-[#2E7D32] to-[#1F5620] p-6 md:p-10 rounded-3xl text-white shadow-2xl">
-          <div className="flex items-start gap-4 md:gap-6">
-            <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0 shadow-xl">
-              <Scale className="w-6 h-6 md:w-8 md:h-8 text-white" />
+        <div className="bg-white rounded-2xl border-2 border-[#2E7D32]/10 overflow-hidden shadow-lg">
+          <div className="bg-gradient-to-r from-[#F1F8F4] to-white p-4 md:p-6 border-b-2 border-[#2E7D32]/10">
+            <div className="flex items-start md:items-center gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-[#2E7D32] to-[#1F5620] flex items-center justify-center flex-shrink-0">
+                <Scale className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              </div>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Governing Law</h2>
             </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Governing Law</h2>
-              <p className="text-white/90 leading-relaxed text-base md:text-lg mb-6">
-                These Terms of Service and any separate agreements whereby we provide you Services shall be governed 
-                by and construed in accordance with the laws of India.
-              </p>
-              <div className="bg-white/10 p-4 md:p-6 rounded-xl backdrop-blur-sm">
-                <div className="flex items-start gap-2 md:gap-3">
-                  <Globe className="w-5 h-5 md:w-6 md:h-6 text-white flex-shrink-0 mt-1" />
-                  <p className="text-white/95 leading-relaxed text-sm md:text-base">
-                    Any disputes arising shall be subject to the exclusive jurisdiction of the courts located in 
-                    <strong className="text-white"> Thane, Maharashtra, India</strong>.
-                  </p>
-                </div>
+          </div>
+          <div className="p-4 md:p-6 lg:p-8">
+            <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-4">
+              These Terms of Service and any separate agreements whereby we provide you Services shall be governed 
+              by and construed in accordance with the laws of India.
+            </p>
+            <div className="bg-gradient-to-br from-[#F1F8F4] to-white p-4 md:p-6 rounded-xl border-l-4 border-[#2E7D32]">
+              <div className="flex items-start gap-2 md:gap-3">
+                <Globe className="w-5 h-5 md:w-6 md:h-6 text-[#2E7D32] flex-shrink-0 mt-1" />
+                <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+                  Any disputes arising shall be subject to the exclusive jurisdiction of the courts located in 
+                  <strong className="text-[#2E7D32]"> Thane, Maharashtra, India</strong>.
+                </p>
               </div>
             </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Intellectual Property Rights */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="mb-16"
+      >
+        <div className="bg-white rounded-2xl border-2 border-[#2E7D32]/10 overflow-hidden shadow-lg">
+          <div className="bg-gradient-to-r from-[#F1F8F4] to-white p-4 md:p-6 border-b-2 border-[#2E7D32]/10">
+            <div className="flex items-start md:items-center gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-[#2E7D32] to-[#1F5620] flex items-center justify-center flex-shrink-0">
+                <Copyright className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              </div>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Intellectual Property Rights</h2>
+            </div>
+          </div>
+          <div className="p-4 md:p-6 lg:p-8">
+            <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+              Globalveridian reserves complete title and full intellectual property rights in any Content you 
+              download from the Site. Unauthorized use may result in legal action.
+            </p>
           </div>
         </div>
       </motion.section>
