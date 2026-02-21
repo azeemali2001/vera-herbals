@@ -1,10 +1,10 @@
-import { AboutSection } from "../components/AboutSection";
+import { VeraStorySection } from "../components/VeraStorySection";
 import { QualitySection } from "../components/QualitySection";
 
 export default function AboutUs() {
   return (
     <>
-      <AboutSection />
+      <VeraStorySection />
       <QualitySection />
     </>
   );
