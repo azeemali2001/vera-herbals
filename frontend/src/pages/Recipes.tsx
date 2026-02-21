@@ -1,8 +1,5 @@
 
 import { useState } from "react";
-import { Navigation } from "../components/Navigation";
-import { Footer } from "../components/Footer";
-import { Toaster } from "../components/ui/sonner";
 
 const recipeGroups = [
   {
@@ -255,8 +252,7 @@ export default function Recipes() {
   
 
   return (
-    <main className="bg-white">
-      <Navigation />
+    <section className="section-block">
 
       {/* HERO */}
       <section className="pt-28 pb-20 text-center max-w-4xl mx-auto px-6">
@@ -453,8 +449,6 @@ export default function Recipes() {
         </div>
       )}
 
-      <Footer />
-      <Toaster position="top-right" />
-    </main>
+    </section>
   );
 }

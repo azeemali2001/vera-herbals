@@ -1,6 +1,4 @@
-import { Navigation } from "../components/Navigation";
-import { Footer } from "../components/Footer";
-import { Toaster } from "../components/ui/sonner";
+import { PageHeader } from "../components/layout/PageHeader";
 
 const blogPosts = [
   {
@@ -43,41 +41,34 @@ const blogPosts = [
 
 export default function Blog() {
   return (
-    <main className="min-h-screen bg-white">
-      <Navigation />
-      <div className="pt-20">
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Wellness Blog</h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover insights into Ayurvedic wisdom, herbal benefits, and natural wellness practices
-              to support your journey toward optimal health.
-            </p>
-          </div>
+    <section className="section-block">
+      <PageHeader
+        eyebrow="Insights"
+        title="Wellness Blog"
+        description="Discover insights into Ayurvedic wisdom, herbal benefits, and natural wellness practices to support your journey toward optimal health."
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <article key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <div className="w-full h-48 bg-gradient-to-br from-green-100 to-green-200 rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-6xl">📖</span>
-                </div>
-                <div className="flex items-center text-sm text-gray-500 mb-2">
-                  <span>{post.date}</span>
-                  <span className="mx-2">•</span>
-                  <span>{post.readTime}</span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{post.title}</h3>
-                <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                <button className="text-green-600 hover:text-green-700 font-medium">
-                  Read More →
-                </button>
-              </article>
-            ))}
-          </div>
+      <div className="app-container pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post, index) => (
+            <article key={index} className="rounded-2xl border border-[#dbe5d1] bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card">
+              <div className="mb-4 flex h-44 w-full items-center justify-center rounded-xl bg-gradient-to-br from-green-100 to-green-200">
+                <span className="text-6xl">📖</span>
+              </div>
+              <div className="mb-2 flex items-center text-sm text-earth-light">
+                <span>{post.date}</span>
+                <span className="mx-2">•</span>
+                <span>{post.readTime}</span>
+              </div>
+              <h3 className="mb-3 text-xl font-semibold text-earth">{post.title}</h3>
+              <p className="mb-4 text-earth-light">{post.excerpt}</p>
+              <button className="text-sage hover:text-[#3D6623] font-medium transition-colors">
+                Read More →
+              </button>
+            </article>
+          ))}
         </div>
       </div>
-      <Footer />
-      <Toaster position="top-right" />
-    </main>
+    </section>
   );
 }

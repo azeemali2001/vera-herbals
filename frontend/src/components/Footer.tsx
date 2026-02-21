@@ -10,7 +10,7 @@ export function Footer() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#4A7C2C] rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="app-container relative z-10">
         <div className="grid md:grid-cols-3 gap-12 items-center">
           {/* Brand Section */}
           <motion.div
@@ -117,7 +117,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-right space-y-2"
+            className="text-left md:text-right space-y-2"
           >
             <div className="text-white"><a
               href="mailto:support@example.com"
