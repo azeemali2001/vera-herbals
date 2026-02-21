@@ -49,7 +49,7 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
 
   return (
     <section className={cn(
-      "py-20 lg:py-28",
+      "py-12 lg:py-16",
       index % 2 === 0 ? "bg-background" : "bg-cream"
     )}>
       <div className="container mx-auto px-6 lg:px-8">
@@ -72,7 +72,7 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
               reversed && "lg:col-start-2"
             )}
           >
-            <div className="relative max-w-lg mx-auto">
+            <div className="relative w-full">
               <div className="flex gap-4">
                 {/* Vertical Thumbnail Column */}
                 {allImages.length > 1 && (
@@ -85,16 +85,12 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
                         whileTap={{ scale: 0.95 }}
                         className={cn(
                           "relative aspect-square rounded-xl overflow-hidden border-2 transition-all duration-300",
-                          currentImageIndex === i 
-                            ? "border-sage shadow-lg" 
+                          currentImageIndex === i
+                            ? "border-sage shadow-lg"
                             : "border-border/40 hover:border-sage/40 opacity-70 hover:opacity-100"
                         )}
                       >
-                        <img
-                          src={img}
-                          alt={`${product.name} thumbnail ${i + 1}`}
-                          className="w-full h-full object-cover"
-                        />
+                        <img src={img} alt={`${product.name} thumbnail ${i + 1}`} className="w-full h-full object-cover" />
                         {currentImageIndex === i && (
                           <motion.div
                             layoutId="thumbnail-indicator"
@@ -108,53 +104,32 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
                 )}
 
                 {/* Main Image Display */}
-                <div className="flex-1 relative aspect-square">
-                  {/* Decorative background layers with subtle animation*/}
-                  <motion.div 
-                    className="absolute inset-6 rounded-[2.5rem] bg-sage-light"
-                    animate={{ 
-                      rotate: [2, -2, 2],
-                      scale: [1, 1.02, 1]
-                    }}
-                    transition={{ 
-                      duration: 8, 
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  />
-                  
-                  {/* Main image container */}
-                  <div className="relative h-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-sage-light brightness-[0.95] backdrop-blur-sm border border-sage/20">
+                <div className="flex-1 relative w-full">
+                  <div className="relative h-full rounded-3xl overflow-hidden bg-sage-light/30 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-border/40">
+
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={currentImageIndex}
                         src={allImages[currentImageIndex]}
                         alt={`${product.name} ${currentImageIndex + 1}`}
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 1.05 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
-                        className="w-full h-full object-contain p-8 lg:p-12"
+                        exit={{ opacity: 0, scale: 0.98 }}
+                        transition={{ duration: 0.45, ease: "easeOut" }}
+                        className="w-full h-full object-contain object-center"
                       />
                     </AnimatePresence>
 
-                    {/* Elegant gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-orange-900/5 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
 
-                    {/* Image counter badge (only show if multiple images) */}
                     {allImages.length > 1 && (
-                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md border border-orange-200/30 z-10">
-                        <span className="text-xs font-medium text-earth">
+                      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-md">
+                        <span className="text-xs font-semibold text-earth">
                           {currentImageIndex + 1} / {allImages.length}
                         </span>
                       </div>
                     )}
                   </div>
-
-                  {/* Original badge style maintained */}
-                  {/* <div className="absolute -bottom-4 -right-4 lg:-right-8 bg-sage text-primary-foreground px-6 py-3 rounded-2xl shadow-card z-20">
-                    <span className="text-sm font-medium">100% Natural</span>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -212,7 +187,7 @@ export function FeaturedProduct({ product, index, reversed = false }: FeaturedPr
                       expandedSection === i && "rotate-180"
                     )}>
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                   </button>

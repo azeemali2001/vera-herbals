@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Navigation } from "../components/Navigation";
-import { Footer } from "../components/Footer";
+// import { Footer } from "../components/Footer";
 import { FeaturedProduct } from "../components/products/FeaturedProduct";
-import { ProductGrid } from "../components/products/ProductGrid";
+// import { ProductGrid } from "../components/products/ProductGrid";
 
 const products = [
   {
@@ -81,7 +81,7 @@ const products = [
   {
     id: "neem-leaf-powder", // Added unique ID
     name: "Neem Leaf Powder",
-    image: ["neemLeafPowder.png"],
+    image: ["neemLeafPowder.png","neemLeafPowder.png","neemLeafPowder.png"],
     about: [
       {
         heading: "SKIN & IMMUNE SUPPORT",
@@ -98,7 +98,7 @@ const products = [
   {
     id: "tulsi-leaf-powder", // Added unique ID
     name: "Tulsi Leaf Powder",
-    image: ["tulsiLeafPowder.png"],
+    image: ["tulsiLeafPowder.png","tulsiLeafPowder.png","tulsiLeafPowder.png"],
     about: [
       {
         heading: "STRESS RELIEF & IMMUNITY",
@@ -115,7 +115,7 @@ const products = [
   {
     id: "amla-powder", // Added unique ID
     name: "Amla Powder",
-    image: ["amlaPowder.png"],
+    image: ["amlaPowder.png","amlaPowder.png","amlaPowder.png"],
     about: [
       {
         heading: "VITAMIN C POWERHOUSE",
@@ -132,7 +132,7 @@ const products = [
   {
     id: "papaya-leaf-powder", // Added unique ID
     name: "Papaya Leaf Powder",
-    image: ["papayaLeafPowder.png"],
+    image: ["papayaLeafPowder.png","papayaLeafPowder.png","papayaLeafPowder.png"],
     about: [
       {
         heading: "DIGESTIVE & LIVER SUPPORT",
@@ -149,7 +149,7 @@ const products = [
   {
     id: "turmeric-powder", // Added unique ID
     name: "Turmeric Powder",
-    image: ["turmericPowder.png"],
+    image: ["turmericPowder.png","turmericPowder.png","turmericPowder.png"],
     about: [
       {
         heading: "ANTI-INFLAMMATORY & JOINT HEALTH",
@@ -166,7 +166,7 @@ const products = [
   {
     id: "banana-powder", // Added unique ID
     name: "Banana Powder",
-    image: ["bananaPowder.png"],
+    image: ["bananaPowder.png","bananaPowder.png","bananaPowder.png"],
     about: [
       {
         heading: "ENERGY & ELECTROLYTE BALANCE",
@@ -183,7 +183,7 @@ const products = [
   {
     id: "hibiscus-powder", // Added unique ID
     name: "Hibiscus Powder",
-    image: ["hibiscusPowder.png"],
+    image: ["hibiscusPowder.png","hibiscusPowder.png","hibiscusPowder.png"],
     about: [
       {
         heading: "HEART & NATURAL ENERGY",
@@ -199,11 +199,11 @@ const products = [
   }
 ];
 
-// Featured products (first 2)
-const featuredProducts = products.slice(0, 2);
+// Featured products (first 2) -> Now i (azeem) put all the product as featured
+const featuredProducts = products.slice(0);
 
 // Other products (rest)
-const otherProducts = products.slice(2);
+// const otherProducts = products.slice();
 
 export default function Products() {
   const location = useLocation();
@@ -221,7 +221,7 @@ export default function Products() {
             behavior: 'smooth', 
             block: 'center' 
           });
-        }, 100);
+        }, 0);
       }
     }
   }, [location]);
@@ -245,10 +245,10 @@ export default function Products() {
       ))}
 
       {/* Other Products Grid */}
-      <ProductGrid products={otherProducts}           
+      {/* <ProductGrid products={otherProducts}           
             title="More Herbal Treasures"
             subtitle="Explore our complete range of nature's finest remedies, each carefully selected for quality and potency." />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }
