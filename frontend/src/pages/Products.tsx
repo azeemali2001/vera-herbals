@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Navigation } from "../components/Navigation";
-// import { Footer } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import { FeaturedProduct } from "../components/products/FeaturedProduct";
 // import { ProductGrid } from "../components/products/ProductGrid";
 
@@ -247,8 +247,8 @@ export default function Products() {
       {/* Other Products Grid */}
       {/* <ProductGrid products={otherProducts}           
             title="More Herbal Treasures"
-            subtitle="Explore our complete range of nature's finest remedies, each carefully selected for quality and potency." />
-      <Footer /> */}
+            subtitle="Explore our complete range of nature's finest remedies, each carefully selected for quality and potency." /> */}
+      <Footer />
     </>
   );
 }

@@ -31,8 +31,8 @@ export function Footer() {
               <div className="text-3xl text-white">VERA</div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed">
-              Nature's Wisdom. <br/>
-              Modern Wellness. <br/>  
+              Nature's Wisdom. <br />
+              Modern Wellness. <br />
               Pure Herbal Solutions.
             </p>
           </motion.div>
@@ -47,8 +47,8 @@ export function Footer() {
           >
             <ul className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm">
               <li>
-                <Link 
-                  to="/about-us" 
+                <Link
+                  to="/about-us"
                   className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   About Us
@@ -56,8 +56,8 @@ export function Footer() {
               </li>
               <li className="text-white/30">•</li>
               <li>
-                <Link 
-                  to="/blog" 
+                <Link
+                  to="/blog"
                   className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   Blog
@@ -65,8 +65,8 @@ export function Footer() {
               </li>
               <li className="text-white/30">•</li>
               <li>
-                <Link 
-                  to="/contact-us" 
+                <Link
+                  to="/contact-us"
                   className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   Contact Us
@@ -74,8 +74,8 @@ export function Footer() {
               </li>
               <li className="text-white/30">•</li>
               <li>
-                <Link 
-                  to="/shipping-policy" 
+                <Link
+                  to="/shipping-policy"
                   className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   Shipping Policy
@@ -83,8 +83,8 @@ export function Footer() {
               </li>
               <li className="text-white/30">•</li>
               <li>
-                <Link 
-                  to="/cancellation-refund" 
+                <Link
+                  to="/cancellation-refund"
                   className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   Cancellation & Refund
@@ -92,8 +92,8 @@ export function Footer() {
               </li>
               <li className="text-white/30">•</li>
               <li>
-                <Link 
-                  to="/privacy-policy" 
+                <Link
+                  to="/privacy-policy"
                   className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   Privacy Policy
@@ -101,15 +101,15 @@ export function Footer() {
               </li>
               <li className="text-white/30">•</li>
               <li>
-                <Link 
-                  to="/terms-conditions" 
+                <Link
+                  to="/terms-conditions"
                   className="text-white/70 hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   Terms & Conditions
                 </Link>
               </li>
             </ul>
-          </motion.nav>
+        </motion.nav>
 
           {/* Contact Section */}
           <motion.div
@@ -119,26 +119,22 @@ export function Footer() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-right space-y-2"
           >
-            <div className="text-white">connect@globalveridian.com</div>
-            <div className="text-white/70 text-sm">Chat on Whatsapp</div>
+            <div className="text-white"><a
+              href="mailto:support@example.com"
+              className="hover:text-sage transition-colors"
+            >
+              support@example.com
+            </a></div>
+            <div className="text-white/70 text-sm"><a
+              href="https://wa.me/919892320923?text=Hi! I'm interested in your organic products."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-sage transition-colors"
+            >
+              Chat on WhatsApp
+            </a></div>
           </motion.div>
         </div>
-
-        {/* Divider */}
-        <div className="my-8 border-t border-white/10" />
-
-        {/* Bottom Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-center"
-        >
-          {/* <p className="text-sm text-white/50">
-            © {new Date().getFullYear()} VERA. All rights reserved. Crafted for B2B Excellence.
-          </p> */}
-        </motion.div>
       </div>
     </footer>
   );

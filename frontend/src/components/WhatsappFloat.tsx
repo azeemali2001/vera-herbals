@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 export function WhatsAppFloat() {
-  const phoneNumber = "1234567890"; // Replace with your number
+  const phoneNumber = "9892320923"; 
   const message = "Hi! I'm interested in your organic products.";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
