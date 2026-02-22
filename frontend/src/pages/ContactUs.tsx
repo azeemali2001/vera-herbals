@@ -83,9 +83,9 @@ export default function ContactUs() {
             </p>
 
             <div className="space-y-4">
-              <InfoRow icon={<Mail className="w-5 h-5 text-sage" />} label="Email" value="info@veraherbals.com" />
-              <InfoRow icon={<Phone className="w-5 h-5 text-sage" />} label="Phone" value="+1 (555) 123-4567" />
-              <InfoRow icon={<MapPin className="w-5 h-5 text-sage" />} label="Address" value="123 Herbal Way, Wellness City, WC 12345" />
+              <InfoRow icon={<Mail className="w-5 h-5 text-sage" />} label="Email" value="connect@globalveridian.com" />
+              <InfoRow icon={<Phone className="w-5 h-5 text-sage" />} label="Phone" value="+91 98923 20923" />
+              <InfoRow icon={<MapPin className="w-5 h-5 text-sage" />} label="Address" value="Thane, Maharashtra" />
             </div>
 
             <div className="mt-8 pt-6 border-t border-[#dbe5d1]">

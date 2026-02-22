@@ -120,10 +120,10 @@ export function Footer() {
             className="text-left md:text-right space-y-2"
           >
             <div className="text-white"><a
-              href="mailto:support@example.com"
+              href="mailto:connect@globalveridian.com"
               className="hover:text-sage transition-colors"
             >
-              support@example.com
+              connect@globalveridian.com
             </a></div>
             <div className="text-white/70 text-sm"><a
               href="https://wa.me/919892320923?text=Hi! I'm interested in your organic products."
