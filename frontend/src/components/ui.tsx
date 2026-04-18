@@ -1,13 +1,11 @@
-import { motion } from 'framer-motion'
-import type { ReactNode, ButtonHTMLAttributes } from 'react'
+import { motion, type HTMLMotionProps } from 'framer-motion'
+import type { ReactNode } from 'react'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'> {
   children: ReactNode
   variant?: 'primary' | 'secondary' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   isLoading?: boolean
-  className?: string
-  disabled?: boolean
 }
 
 export function Button({

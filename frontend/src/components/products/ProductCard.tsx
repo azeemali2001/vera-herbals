@@ -26,7 +26,6 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, index, onClick, href }: ProductCardProps) {
-  const highlightItems = product.highlights.split(" • ").slice(0, 3);
   const isClickable = !!onClick || !!href;
 
   const cardContent = (
