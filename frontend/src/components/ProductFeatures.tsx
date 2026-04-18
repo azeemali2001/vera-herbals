@@ -89,44 +89,42 @@ export function ProductFeatures() {
         {/* Products Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
         >
           <AnimatePresence>
             {visibleProducts.map((product, index) => (
               <motion.div
                 key={product.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                {/* Wrap card in Link to redirect on click with hash */}
                 <Link
-                  to={`/products#${product.id}`}
+                  to={`/products/${product.id}`}
                   className="group block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative"
                 >
-                  {/* Product Image */}
-                  <div className="aspect-square overflow-hidden bg-gradient-to-br from-[#F5F8F2] to-white">
+                  <div className="relative overflow-hidden">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
 
-                  {/* Content */}
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2 text-gray-800 group-hover:text-[#4A7C2C] transition-colors">
                       {product.name}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 mb-4">
                       {product.benefit}
                     </p>
+                    <div className="flex items-center justify-between text-sm text-[#4A7C2C] font-medium">
+                      <span>Explore</span>
+                      <span aria-hidden="true">→</span>
+                    </div>
                   </div>
-
-                  {/* Decorative corner */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#4A7C2C]/10 to-transparent rounded-bl-full" />
                 </Link>
               </motion.div>
             ))}

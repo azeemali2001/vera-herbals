@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export function Footer() {
+  const [logoFailed, setLogoFailed] = useState(false);
+
   return (
     <footer className="bg-gradient-to-br from-[#2D5016] to-[#1F3810] text-white py-16 relative overflow-hidden">
       {/* Background decoration */}
@@ -22,11 +25,16 @@ export function Footer() {
           >
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6B9D3E] to-[#8CBE60] flex items-center justify-center">
-                <img
-                  src="logo-no-bg.png"
-                  alt="Vera Herbal Wellness Logo"
-                  className="w-full h-full object-contain rounded-lg bg-white/90"
-                />
+                {!logoFailed ? (
+                  <img
+                    src="/logo-no-bg.png"
+                    alt="Vera Herbal Wellness Logo"
+                    className="w-full h-full object-contain rounded-lg bg-white/90"
+                    onError={() => setLogoFailed(true)}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-white/90 rounded-lg text-[#4A7C2C] font-bold">V</div>
+                )}
               </div>
               <div className="text-3xl text-white">VERA</div>
             </div>

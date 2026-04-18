@@ -15,6 +15,7 @@ const menuItems = [
 
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [logoFailed, setLogoFailed] = useState(false);
   const location = useLocation();
 
   return (
@@ -28,7 +29,16 @@ export function Navigation() {
         <div className="app-container h-[var(--header-height)] flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
             <div className="h-11 w-11 rounded-xl bg-[#E6F2D9] shadow-sm flex items-center justify-center overflow-hidden">
-              <img src="logo-no-bg.png" alt="Vera Herbal Wellness Logo" className="h-full w-full object-contain scale-110" />
+              {!logoFailed ? (
+                <img 
+                  src="/logo-no-bg.png" 
+                  alt="Vera Herbal Wellness Logo" 
+                  className="h-full w-full object-contain scale-110"
+                  onError={() => setLogoFailed(true)}
+                />
+              ) : (
+                <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[#4A7C2C] to-[#6B9D3E] text-white font-bold text-sm">V</div>
+              )}
             </div>
             <div className="text-2xl text-[#6BAE3C] tracking-tight font-serif font-semibold">VERA</div>
           </Link>

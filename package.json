@@ -1,6 +1,6 @@
 {
   "name": "vera-herbals-monorepo",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Monorepo for Vera Herbals frontend and backend",
   "scripts": {
     "dev": "concurrently \"npm run frontend\" \"npm run backend\"",

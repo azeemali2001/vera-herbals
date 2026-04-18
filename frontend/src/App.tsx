@@ -8,7 +8,7 @@ import ContactUs from './pages/ContactUs';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Recipes from './pages/Recipes';
-
+import { ProductDetailPage } from './pages/ProductDetailPage';
 
 import { ShippingPolicy } from './pages/ShippingPolicy';
 import { CancellationRefund } from './pages/CancellationRefund';
@@ -33,6 +33,7 @@ export default function App() {
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:slug" element={<ProductDetailPage />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/recipes" element={<Recipes />} />
