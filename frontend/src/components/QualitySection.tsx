@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
-  FileCheck,
-  Microscope,
-  Award,
-  ClipboardCheck,
-  Layers,
   ArrowRight,
 } from "lucide-react";
 

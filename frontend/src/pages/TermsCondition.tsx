@@ -52,7 +52,6 @@ export function TermsConditions() {
     <PolicyLayout
       title="Terms & Conditions"
       description="Understanding our mutual rights and responsibilities"
-      heroImage="https://images.unsplash.com/photo-1763729805496-b5dbf7f00c79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsZWdhbCUyMGRvY3VtZW50JTIwY29udHJhY3R8ZW58MXx8fHwxNzcxNzA0ODMyfDA&ixlib=rb-4.1.0&q=80&w=1080"
     >
       {/* Key Sections */}
       <div className="space-y-8 mb-16">
