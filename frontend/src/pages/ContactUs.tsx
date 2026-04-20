@@ -84,7 +84,7 @@ export default function ContactUs() {
 
             <div className="space-y-4">
               <InfoRow icon={<Mail className="w-5 h-5 text-sage" />} label="Email" value="connect@globalveridian.com" />
-              <InfoRow icon={<Phone className="w-5 h-5 text-sage" />} label="Phone" value="+91 98923 20923" />
+              <InfoRow icon={<Phone className="w-5 h-5 text-sage" />} label="Phone" value="+91 84336 95326" />
               <InfoRow icon={<MapPin className="w-5 h-5 text-sage" />} label="Address" value="Thane, Maharashtra" />
             </div>
 

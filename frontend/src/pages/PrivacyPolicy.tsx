@@ -58,7 +58,6 @@ export function PrivacyPolicy() {
     <PolicyLayout
       title="Privacy Policy"
       description="Your privacy and data security are our top priorities"
-      heroImage="https://images.unsplash.com/photo-1769704653651-2d09b1e6e60e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcml2YWN5JTIwc2VjdXJpdHklMjBsb2NrfGVufDF8fHx8MTc3MTcwNDgzMnww&ixlib=rb-4.1.0&q=80&w=1080"
     >
       {/* Trust Badges */}
       <div className="grid md:grid-cols-3 gap-6 mb-16">

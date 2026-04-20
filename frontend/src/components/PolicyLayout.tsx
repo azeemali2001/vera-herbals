@@ -6,22 +6,16 @@ import { ArrowLeft } from "lucide-react";
 interface PolicyLayoutProps {
   title: string;
   description: string;
-  heroImage: string;
   children: ReactNode;
 }
 
-export function PolicyLayout({ title, description, heroImage, children }: PolicyLayoutProps) {
+export function PolicyLayout({ title, description, children }: PolicyLayoutProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-[#F1F8F4]">
       {/* Hero Section */}
       <div className="relative h-[40vh] sm:h-[45vh] md:h-[50vh] min-h-[300px] sm:min-h-[350px] md:min-h-[400px] overflow-hidden">
         {/* Hero Image with Overlay */}
         <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt={title}
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-br from-[#2E7D32]/95 via-[#2E7D32]/90 to-[#1F5620]/95" />
         </div>
 

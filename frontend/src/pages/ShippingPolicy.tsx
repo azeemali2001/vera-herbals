@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { PolicyLayout } from "../components/PolicyLayout";
-import { Package, Clock, DollarSign, Truck } from "lucide-react";
+import { Package, Clock, Truck, HandCoins, TruckIcon } from "lucide-react";
 
 const features = [
   {
@@ -14,12 +14,12 @@ const features = [
     description: "3-5 business days delivery",
   },
   {
-    icon: DollarSign,
+    icon: Package,
     title: "Free Shipping",
     description: "On orders above ₹499",
   },
   {
-    icon: Package,
+    icon: HandCoins,
     title: "COD Available",
     description: "Cash on delivery at additional charges",
   },
@@ -30,7 +30,6 @@ export function ShippingPolicy() {
     <PolicyLayout
       title="Shipping Policy"
       description="Fast, reliable delivery to your doorstep"
-      heroImage="https://images.unsplash.com/photo-1665521032636-e8d2f6927053?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaGlwcGluZyUyMGRlbGl2ZXJ5JTIwbG9naXN0aWNzfGVufDF8fHx8MTc3MTcwNDgzMXww&ixlib=rb-4.1.0&q=80&w=1080"
     >
       {/* Feature Cards */}
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -56,24 +55,28 @@ export function ShippingPolicy() {
 
       {/* Detailed Policy */}
       <div className="space-y-8">
+        
+
         <motion.section
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="space-y-4"
+          className="space-y-4 bg-gradient-to-br from-[#F1F8F4] to-white p-8 rounded-2xl border-2 border-[#2E7D32]/10"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-1 h-8 bg-gradient-to-b from-[#2E7D32] to-[#1F5620] rounded-full" />
-            <h2 className="text-3xl font-bold text-gray-900">Shipping Details</h2>
+
+
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-lg bg-[#2E7D32] flex items-center justify-center">
+              <TruckIcon className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900">Shipping Details</h3>
           </div>
 
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed">
-              The shipping of the orders is processed within <strong className="text-[#2E7D32]">48 hours</strong> of the order.
-              And it reaches Customer within <strong className="text-[#2E7D32]">3-5 Business days</strong> depending on the
-              Logistics partner.
-            </p>
-          </div>
+          <p className="text-gray-700 leading-relaxed">
+            The shipping of the orders is processed within <strong className="text-[#2E7D32]">48 hours</strong> of the order.
+            And it reaches Customer within <strong className="text-[#2E7D32]">3-5 Business days</strong> depending on the
+            Logistics partner.
+          </p>
         </motion.section>
 
         <motion.section
@@ -82,9 +85,11 @@ export function ShippingPolicy() {
           viewport={{ once: true }}
           className="space-y-4 bg-gradient-to-br from-[#F1F8F4] to-white p-8 rounded-2xl border-2 border-[#2E7D32]/10"
         >
+
+
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-lg bg-[#2E7D32] flex items-center justify-center">
-              <DollarSign className="w-5 h-5 text-white" />
+              <Package className="w-5 h-5 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900">Free Shipping Offer</h3>
           </div>
@@ -102,7 +107,7 @@ export function ShippingPolicy() {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#2E7D32] to-[#1F5620] flex items-center justify-center">
-              <Package className="w-5 h-5 text-white" />
+              <HandCoins className="w-5 h-5 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900">Cash on Delivery (COD)</h3>
           </div>
@@ -127,7 +132,7 @@ export function ShippingPolicy() {
             <div>
               <h4 className="text-xl font-bold mb-2">Track Your Order</h4>
               <p className="text-white/90 leading-relaxed">
-                Once your order is shipped, you will receive a tracking number via email and SMS. 
+                Once your order is shipped, you will receive a tracking number via email and SMS.
                 You can track your shipment in real-time through our logistics partner's portal.
               </p>
             </div>

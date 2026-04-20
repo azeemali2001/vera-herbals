@@ -28,7 +28,6 @@ export function CancellationRefund() {
     <PolicyLayout
       title="Cancellation & Refund"
       description="Clear and fair policies for your peace of mind"
-      heroImage="https://images.unsplash.com/photo-1615775036549-3ed82887fcc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b21lciUyMHNlcnZpY2UlMjByZWZ1bmQlMjBwb2xpY3l8ZW58MXx8fHwxNzcxNzA0ODMxfDA&ixlib=rb-4.1.0&q=80&w=1080"
     >
       {/* Timeline Cards */}
       <div className="mb-16">

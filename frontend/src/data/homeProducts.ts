@@ -87,24 +87,24 @@ export const homeProducts: HomeProduct[] = [
     highlights: "Rich Aroma • Hair Health • Vitamin B Source • Authentic Indian Flavor",
     description: "Premium curry leaf powder for culinary and wellness use. Adds authentic flavor to dishes and supports healthy hair growth."
   },
-  {
-    id: "neem-leaf-powder",
-    slug: "neem-leaf-powder",
-    name: "Neem Leaf Powder",
-    image: ["/neemLeafPowder.png","/neemLeafPowder.png","/neemLeafPowder.png"],
-    about: [
-      {
-        heading: "SKIN & IMMUNE SUPPORT",
-        bullets: [
-          "Ancient remedy for skin health and immune support.",
-          "Natural detoxifier with antimicrobial properties."
-        ]
-      }
-    ],
-    usage: "Mix with water for tea or apply as paste.",
-    highlights: "Detoxifier • Skin Health • Immunity",
-    description: "Neem leaf powder supports clear skin and a healthy immune system with natural detoxifying properties."
-  },
+  // {
+  //   id: "neem-leaf-powder",
+  //   slug: "neem-leaf-powder",
+  //   name: "Neem Leaf Powder",
+  //   image: ["/neemLeafPowder.png","/neemLeafPowder.png","/neemLeafPowder.png"],
+  //   about: [
+  //     {
+  //       heading: "SKIN & IMMUNE SUPPORT",
+  //       bullets: [
+  //         "Ancient remedy for skin health and immune support.",
+  //         "Natural detoxifier with antimicrobial properties."
+  //       ]
+  //     }
+  //   ],
+  //   usage: "Mix with water for tea or apply as paste.",
+  //   highlights: "Detoxifier • Skin Health • Immunity",
+  //   description: "Neem leaf powder supports clear skin and a healthy immune system with natural detoxifying properties."
+  // },
   {
     id: "tulsi-leaf-powder",
     slug: "tulsi-leaf-powder",
@@ -141,24 +141,24 @@ export const homeProducts: HomeProduct[] = [
     highlights: "Vitamin C • Hair & Skin • Digestion",
     description: "Amla powder is a potent source of Vitamin C, supporting immunity, hair, and skin health."
   },
-  {
-    id: "papaya-leaf-powder",
-    slug: "papaya-leaf-powder",
-    name: "Papaya Leaf Powder",
-    image: ["/papayaLeafPowder.png","/papayaLeafPowder.png","/papayaLeafPowder.png"],
-    about: [
-      {
-        heading: "DIGESTIVE & LIVER SUPPORT",
-        bullets: [
-          "Supports digestive health and natural detoxification.",
-          "Contains digestive enzymes and supports liver function."
-        ]
-      }
-    ],
-    usage: "Brew as tea or mix with water.",
-    highlights: "Digestive Enzymes • Liver Support • Detox",
-    description: "Papaya leaf powder aids digestion and supports liver health with natural enzymes."
-  },
+  // {
+  //   id: "papaya-leaf-powder",
+  //   slug: "papaya-leaf-powder",
+  //   name: "Papaya Leaf Powder",
+  //   image: ["/papayaLeafPowder.png","/papayaLeafPowder.png","/papayaLeafPowder.png"],
+  //   about: [
+  //     {
+  //       heading: "DIGESTIVE & LIVER SUPPORT",
+  //       bullets: [
+  //         "Supports digestive health and natural detoxification.",
+  //         "Contains digestive enzymes and supports liver function."
+  //       ]
+  //     }
+  //   ],
+  //   usage: "Brew as tea or mix with water.",
+  //   highlights: "Digestive Enzymes • Liver Support • Detox",
+  //   description: "Papaya leaf powder aids digestion and supports liver health with natural enzymes."
+  // },
   {
     id: "turmeric-powder",
     slug: "turmeric-powder",
@@ -177,24 +177,24 @@ export const homeProducts: HomeProduct[] = [
     highlights: "Anti-inflammatory • Joint Health • Antioxidant",
     description: "Turmeric powder is known for its anti-inflammatory and antioxidant benefits, supporting joint health."
   },
-  {
-    id: "banana-powder",
-    slug: "banana-powder",
-    name: "Banana Powder",
-    image: ["/bananaPowder.png","/bananaPowder.png","/bananaPowder.png"],
-    about: [
-      {
-        heading: "ENERGY & ELECTROLYTE BALANCE",
-        bullets: [
-          "Natural energy source rich in potassium and vitamins.",
-          "Supports electrolyte balance and digestive health."
-        ]
-      }
-    ],
-    usage: "Add to smoothies, baking, or oatmeal.",
-    highlights: "Energy Boost • Potassium • Digestion",
-    description: "Banana powder provides natural energy, supports digestion, and helps maintain electrolyte balance."
-  },
+  // {
+  //   id: "banana-powder",
+  //   slug: "banana-powder",
+  //   name: "Banana Powder",
+  //   image: ["/bananaPowder.png","/bananaPowder.png","/bananaPowder.png"],
+  //   about: [
+  //     {
+  //       heading: "ENERGY & ELECTROLYTE BALANCE",
+  //       bullets: [
+  //         "Natural energy source rich in potassium and vitamins.",
+  //         "Supports electrolyte balance and digestive health."
+  //       ]
+  //     }
+  //   ],
+  //   usage: "Add to smoothies, baking, or oatmeal.",
+  //   highlights: "Energy Boost • Potassium • Digestion",
+  //   description: "Banana powder provides natural energy, supports digestion, and helps maintain electrolyte balance."
+  // },
   {
     id: "hibiscus-powder",
     slug: "hibiscus-powder",
